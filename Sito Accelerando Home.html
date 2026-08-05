@@ -1,0 +1,3781 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Accelerando Records</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bl: #080808;
+        --wh: #fff;
+        --rd: #cc0000;
+        --rd2: #aa0000;
+        --yw: #ffd600;
+        --bu: #1a56db;
+        --gn: #16a34a;
+        --mid: #111;
+        --card: #0e0e0e;
+        --br: #1e1e1e;
+        --gr: #666;
+        --hd: "Bebas Neue", sans-serif;
+        --bd: "Inter", sans-serif;
+      }
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--bd);
+        background: var(--bl);
+        color: var(--wh);
+        overflow-x: hidden;
+        line-height: 1.5;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      .wrap {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+
+      /* NAV */
+      nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 200;
+        height: 68px;
+        display: flex;
+        align-items: center;
+        background: rgba(8, 8, 8, 0.97);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--br);
+      }
+      nav .wrap {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 28px;
+      }
+      .n-logo {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+        font-family: var(--hd);
+        font-size: 14px;
+        letter-spacing: 2px;
+        line-height: 1.1;
+        cursor: pointer;
+      }
+      .n-logo-dot {
+        width: 34px;
+        height: 34px;
+        background: var(--rd);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .n-logo-dot svg {
+        width: 18px;
+        height: 18px;
+        fill: #fff;
+      }
+      .n-links {
+        display: flex;
+        gap: 22px;
+        list-style: none;
+      }
+      .n-links a {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #888;
+        transition: color 0.2s;
+      }
+      .n-links a:hover {
+        color: #fff;
+      }
+      .n-right {
+        display: flex;
+        align-items: center;
+        gap: 11px;
+      }
+      #langBtn {
+        background: none;
+        border: 1px solid #333;
+        color: #888;
+        padding: 5px 12px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        cursor: pointer;
+        font-family: var(--bd);
+        transition: all 0.2s;
+      }
+      #langBtn:hover {
+        border-color: #fff;
+        color: #fff;
+      }
+      .n-cta {
+        background: var(--rd);
+        color: #fff;
+        border: none;
+        padding: 9px 18px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-family: var(--bd);
+      }
+      .n-cta:hover {
+        background: var(--rd2);
+      }
+
+      /* HERO */
+      #home {
+        min-height: 100vh;
+        padding-top: 68px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .h-bg {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(135deg, #000 0%, #060000 40%, #0f0000 100%);
+      }
+      .h-bg::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 65% 55% at 80% 50%,
+          rgba(204, 0, 0, 0.13) 0,
+          transparent 100%
+        );
+      }
+      #home .wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        width: 100%;
+      }
+      .h-tag {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        color: var(--rd);
+        margin-bottom: 18px;
+      }
+      .h-title {
+        font-family: var(--hd);
+        font-size: clamp(48px, 6vw, 82px);
+        line-height: 0.9;
+        letter-spacing: 2px;
+        margin-bottom: 22px;
+      }
+      .h-title .y {
+        color: var(--yw);
+      }
+      .h-desc {
+        font-size: 15px;
+        color: #bbb;
+        line-height: 1.75;
+        max-width: 470px;
+        margin-bottom: 14px;
+      }
+      .h-cities {
+        font-size: 14px;
+        color: #bbb;
+        margin-bottom: 34px;
+      }
+      .h-btns {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn-r {
+        background: var(--rd);
+        color: #fff;
+        border: none;
+        padding: 13px 24px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-family: var(--bd);
+      }
+      .btn-r:hover {
+        background: var(--rd2);
+      }
+      .btn-yw {
+        background: none;
+        color: var(--yw);
+        border: 2px solid var(--yw);
+        padding: 11px 24px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: var(--bd);
+      }
+      .btn-yw:hover {
+        background: var(--yw);
+        color: #000;
+      }
+      .h-visual {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .h-frame {
+        width: 320px;
+        height: 420px;
+        background: linear-gradient(
+          160deg,
+          #160000 0%,
+          #320000 50%,
+          #160000 100%
+        );
+        border: 1px solid rgba(204, 0, 0, 0.3);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .h-frame::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 50% 55%,
+          rgba(255, 255, 255, 0.05) 0,
+          transparent 65%
+        );
+      }
+      .h-vinyl {
+        width: 160px;
+        height: 160px;
+        border-radius: 50%;
+        background: conic-gradient(
+          #000 0deg,
+          #0d0d0d 18deg,
+          #000 36deg,
+          #0d0d0d 54deg,
+          #000 72deg,
+          #0d0d0d 90deg,
+          #000 108deg,
+          #0d0d0d 126deg,
+          #000 144deg,
+          #0d0d0d 162deg,
+          #000 180deg,
+          #0d0d0d 198deg,
+          #000 216deg,
+          #0d0d0d 234deg,
+          #000 252deg,
+          #0d0d0d 270deg,
+          #000 288deg,
+          #0d0d0d 306deg,
+          #000 324deg,
+          #0d0d0d 342deg,
+          #000 360deg
+        );
+        border: 1px solid #222;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        animation: spin 22s linear infinite;
+      }
+      .h-vinyl::after {
+        content: "";
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: var(--rd);
+        box-shadow: 0 0 18px rgba(204, 0, 0, 0.5);
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .h-waves {
+        position: absolute;
+        bottom: 32px;
+        left: 0;
+        right: 0;
+        display: flex;
+        align-items: flex-end;
+        justify-content: center;
+        gap: 3px;
+        height: 44px;
+        padding: 0 24px;
+      }
+      .h-waves span {
+        width: 3px;
+        background: var(--rd);
+        opacity: 0.5;
+        border-radius: 2px;
+      }
+      .h-frame-labels {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        text-align: right;
+      }
+      .h-frame-labels .la1 {
+        font-family: var(--hd);
+        font-size: 20px;
+        letter-spacing: 3px;
+        color: rgba(255, 255, 255, 0.6);
+        display: block;
+      }
+      .h-frame-labels .la2 {
+        font-family: var(--hd);
+        font-size: 32px;
+        letter-spacing: 4px;
+        color: rgba(204, 0, 0, 0.7);
+        display: block;
+      }
+      .rl {
+        color: var(--rd);
+        font-weight: 700;
+      }
+      .bl {
+        color: var(--bu);
+        font-weight: 700;
+      }
+      .ny {
+        color: var(--yw);
+        font-weight: 700;
+      }
+
+      /* COMMON SECTION */
+      section {
+        padding: 108px 0;
+      }
+      .sec-tag {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        background: var(--mid);
+        color: var(--wh);
+        padding: 5px 13px;
+        display: inline-block;
+        margin-bottom: 18px;
+      }
+      .sec-tag.rd {
+        background: var(--rd);
+      }
+      .sec-tag.bu {
+        background: var(--bu);
+      }
+      .sec-tag.gn {
+        background: var(--gn);
+      }
+      .sec-h {
+        font-family: var(--hd);
+        letter-spacing: 2px;
+        line-height: 0.95;
+      }
+      .sub-txt {
+        font-size: 15px;
+        color: #888;
+        line-height: 1.7;
+        max-width: 680px;
+      }
+      .tag-inline {
+        display: inline-block;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        border: 1px solid var(--br);
+        padding: 4px 10px;
+        color: var(--gr);
+      }
+      .tag-inline.bu {
+        border-color: rgba(26, 86, 219, 0.4);
+        color: var(--bu);
+      }
+      .tag-inline.ny {
+        border-color: rgba(255, 214, 0, 0.4);
+        color: var(--yw);
+      }
+
+      /* ABOUT */
+      #about {
+        background: var(--bl);
+      }
+      .ab-title {
+        font-family: var(--hd);
+        font-size: clamp(34px, 4.5vw, 60px);
+        line-height: 0.95;
+        letter-spacing: 2px;
+        margin-bottom: 48px;
+        white-space: pre-line;
+      }
+      .ab-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3px;
+        margin-bottom: 3px;
+      }
+      .ab-story {
+        background: var(--rd);
+        padding: 42px;
+      }
+      .ab-story h3 {
+        font-family: var(--hd);
+        font-size: 24px;
+        letter-spacing: 2px;
+        margin-bottom: 22px;
+      }
+      .ab-story p {
+        font-size: 14px;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.92);
+        margin-bottom: 10px;
+      }
+      .ab-logo-box {
+        background: var(--card);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--br);
+      }
+      .ab-logo-inner {
+        text-align: center;
+      }
+      .ab-logo-inner svg {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 10px;
+      }
+      .ab-logo-inner .al1 {
+        font-family: var(--hd);
+        font-size: 18px;
+        letter-spacing: 3px;
+        color: rgba(255, 255, 255, 0.4);
+        display: block;
+      }
+      .ab-logo-inner .al2 {
+        font-family: var(--hd);
+        font-size: 30px;
+        letter-spacing: 5px;
+        color: var(--rd);
+        display: block;
+      }
+      .ab-quote {
+        border-left: 4px solid var(--rd);
+        padding: 16px 28px;
+        margin: 32px 0;
+        font-size: 16px;
+        line-height: 1.65;
+        color: #ccc;
+        font-style: italic;
+      }
+      .ab-pillars {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3px;
+      }
+      .ab-pillar {
+        background: var(--yw);
+        padding: 28px 30px;
+      }
+      .ab-pillar h4 {
+        font-family: var(--hd);
+        font-size: 22px;
+        letter-spacing: 2px;
+        color: #000;
+        margin-bottom: 8px;
+      }
+      .ab-pillar p {
+        font-size: 13px;
+        line-height: 1.6;
+        color: #333;
+      }
+
+      /* ROSTER */
+      #artists {
+        background: var(--mid);
+      }
+      .ro-hd {
+        margin-bottom: 48px;
+      }
+      .ro-hd .sec-h {
+        font-size: clamp(40px, 5vw, 70px);
+      }
+      .ro-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+      }
+      .art-card {
+        background: var(--card);
+        border: 1px solid var(--br);
+        overflow: hidden;
+      }
+      .art-card.coming-soon {
+        opacity: 0.65;
+      }
+      .art-photo {
+        aspect-ratio: 3/4;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .art-photo .sil {
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 65%;
+        opacity: 0.18;
+        pointer-events: none;
+      }
+      .art-body {
+        padding: 20px;
+      }
+      .art-body h3 {
+        font-family: var(--hd);
+        font-size: 22px;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+      }
+      .art-body .tag-inline {
+        margin-bottom: 13px;
+        display: block;
+      }
+      .art-body p {
+        font-size: 13px;
+        line-height: 1.65;
+        color: #777;
+        margin-bottom: 16px;
+      }
+      .art-btn {
+        background: none;
+        border: 1px solid var(--br);
+        color: #aaa;
+        padding: 7px 14px;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: var(--bd);
+      }
+      .art-btn:hover {
+        background: var(--rd);
+        border-color: var(--rd);
+        color: #fff;
+      }
+      .ro-cta {
+        background: var(--card);
+        border: 1px solid var(--br);
+        padding: 26px 36px;
+        margin-top: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .ro-cta p {
+        font-size: 14px;
+        color: #aaa;
+      }
+      .ro-cta strong {
+        color: #fff;
+      }
+
+      /* EVENTS */
+      #events {
+        background: var(--bl);
+      }
+      .ev-inner {
+        display: grid;
+        grid-template-columns: 360px 1fr;
+        gap: 72px;
+        align-items: start;
+      }
+      .ev-image {
+        position: sticky;
+        top: 88px;
+      }
+      .ev-img {
+        width: 100%;
+        aspect-ratio: 9/16;
+        max-height: 540px;
+        background: linear-gradient(
+          180deg,
+          #000 0%,
+          #0a0a1e 35%,
+          #141062 65%,
+          #050010 100%
+        );
+        border: 1px solid var(--br);
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ev-img::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 50% 78%,
+          rgba(255, 214, 0, 0.17) 0,
+          transparent 58%
+        );
+      }
+      .ev-img .spotlight {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        width: 1px;
+        height: 62%;
+        background: linear-gradient(
+          180deg,
+          rgba(255, 214, 0, 0.7) 0,
+          transparent 100%
+        );
+        transform: translateX(-50%);
+      }
+      .ev-img .crowd-ico {
+        font-size: 52px;
+        opacity: 0.15;
+        position: absolute;
+        bottom: 50px;
+      }
+      .ev-content .sec-tag {
+        background: var(--rd);
+      }
+      .ev-h {
+        font-family: var(--hd);
+        font-size: clamp(46px, 5vw, 76px);
+        line-height: 0.88;
+        letter-spacing: 2px;
+        margin-bottom: 18px;
+        white-space: pre-line;
+      }
+      .ev-desc {
+        font-size: 14px;
+        color: #777;
+        line-height: 1.75;
+        margin-bottom: 40px;
+      }
+      .ev-card {
+        border: 1px solid var(--br);
+        padding: 20px;
+        margin-bottom: 10px;
+        background: var(--card);
+        transition: border-color 0.2s;
+      }
+      .ev-card:hover {
+        border-color: rgba(204, 0, 0, 0.55);
+      }
+      .ev-meta {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--rd);
+        margin-bottom: 5px;
+      }
+      .ev-card h3 {
+        font-family: var(--hd);
+        font-size: 19px;
+        letter-spacing: 1px;
+        margin-bottom: 5px;
+      }
+      .ev-det {
+        font-size: 12px;
+        color: #555;
+      }
+      .ev-det .hl {
+        color: #aaa;
+      }
+      .ev-btn {
+        display: inline-block;
+        background: var(--rd);
+        color: #fff;
+        border: none;
+        padding: 11px 26px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-top: 16px;
+        transition: background 0.2s;
+        font-family: var(--bd);
+      }
+      .ev-btn:hover {
+        background: var(--rd2);
+      }
+
+      /* BATTLE JAM */
+      #battlejam {
+        background: #0c0000;
+        border-top: 2px solid rgba(204, 0, 0, 0.3);
+        border-bottom: 2px solid rgba(204, 0, 0, 0.3);
+      }
+      .bj-inner {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 72px;
+        align-items: center;
+      }
+
+      .bj-title {
+        font-family: var(--hd);
+        font-size: clamp(52px, 7vw, 96px);
+        line-height: 0.88;
+        letter-spacing: 3px;
+        margin-bottom: 18px;
+      }
+      .bj-title .bj-red {
+        color: var(--rd);
+      }
+      .bj-sub {
+        font-size: 15px;
+        color: #bbb;
+        line-height: 1.75;
+        max-width: 480px;
+        margin-bottom: 28px;
+      }
+      .bj-badges {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 32px;
+      }
+      .bj-badge {
+        background: rgba(204, 0, 0, 0.12);
+        border: 1px solid rgba(204, 0, 0, 0.35);
+        padding: 6px 14px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.8);
+      }
+      .bj-btn {
+        display: inline-block;
+        background: var(--rd);
+        color: #fff;
+        border: none;
+        padding: 13px 28px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-family: var(--bd);
+      }
+      .bj-btn:hover {
+        background: var(--rd2);
+      }
+      .bj-right {
+        position: relative;
+      }
+      .bj-visual {
+        background: linear-gradient(
+          160deg,
+          #1a0000 0%,
+          #3d0000 45%,
+          #1a0000 100%
+        );
+        border: 1px solid rgba(204, 0, 0, 0.25);
+        padding: 48px 40px;
+        position: relative;
+        overflow: hidden;
+      }
+      .bj-visual::before {
+        content: "VS";
+        font-family: var(--hd);
+        font-size: 180px;
+        color: rgba(204, 0, 0, 0.06);
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        letter-spacing: 10px;
+        pointer-events: none;
+      }
+      .bj-fighters {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 20px;
+      }
+      .bj-fighter {
+        text-align: center;
+        flex: 1;
+      }
+      .bj-fighter .ico {
+        font-size: 48px;
+        margin-bottom: 12px;
+      }
+      .bj-fighter .lbl {
+        font-family: var(--hd);
+        font-size: 18px;
+        letter-spacing: 2px;
+        color: #aaa;
+      }
+      .bj-vs {
+        font-family: var(--hd);
+        font-size: 40px;
+        color: var(--rd);
+        letter-spacing: 4px;
+      }
+      .bj-venue-tag {
+        text-align: center;
+        margin-top: 28px;
+        font-size: 11px;
+        color: #555;
+        letter-spacing: 1px;
+      }
+      .bj-venue-tag strong {
+        color: #aaa;
+      }
+
+      /* VENUES */
+      #venues {
+        background: var(--mid);
+      }
+      .vn-hd {
+        margin-bottom: 48px;
+      }
+      .vn-hd .sec-h {
+        font-size: clamp(34px, 4.5vw, 58px);
+      }
+      .city-row {
+        margin-bottom: 48px;
+      }
+      .city-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        padding-bottom: 9px;
+        border-bottom: 2px solid var(--rd);
+        margin-bottom: 26px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .city-label.b {
+        border-color: var(--bu);
+      }
+      .city-label.ny {
+        border-color: var(--yw);
+      }
+      .vn-grid-3 {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2px;
+      }
+      .vn-grid-2 {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2px;
+      }
+      .vn-card {
+        background: var(--card);
+        border: 1px solid var(--br);
+        overflow: hidden;
+      }
+      .vn-photo {
+        height: 170px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .vn-photo .sil {
+        font-size: 42px;
+        opacity: 0.18;
+        pointer-events: none;
+      }
+      .vn-body {
+        padding: 20px;
+      }
+      .vn-body h3 {
+        font-family: var(--hd);
+        font-size: 20px;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+      }
+      .vn-body .tag-inline {
+        margin-bottom: 11px;
+        display: block;
+      }
+      .vn-body p {
+        font-size: 13px;
+        line-height: 1.6;
+        color: #777;
+      }
+      .vn-ticket {
+        display: inline-block;
+        margin-top: 12px;
+        background: none;
+        border: 1px solid rgba(204, 0, 0, 0.4);
+        color: rgba(255, 255, 255, 0.6);
+        padding: 6px 14px;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: all 0.2s;
+        font-family: var(--bd);
+      }
+      .vn-ticket:hover {
+        background: var(--rd);
+        border-color: var(--rd);
+        color: #fff;
+      }
+      .vn-ticket.bu {
+        border-color: rgba(26, 86, 219, 0.4);
+        color: rgba(26, 86, 219, 0.8);
+      }
+      .vn-ticket.bu:hover {
+        background: var(--bu);
+        border-color: var(--bu);
+        color: #fff;
+      }
+      .vn-ticket.ny {
+        border-color: rgba(255, 214, 0, 0.4);
+        color: rgba(255, 214, 0, 0.8);
+      }
+      .vn-ticket.ny:hover {
+        background: var(--yw);
+        border-color: var(--yw);
+        color: #000;
+      }
+      .vn-wide {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 0;
+      }
+      .vn-wide .vn-photo {
+        height: auto;
+        min-height: 160px;
+      }
+      .vn-cta {
+        background: rgba(26, 86, 219, 0.07);
+        border: 1px solid rgba(26, 86, 219, 0.2);
+        padding: 28px 34px;
+        margin-top: 3px;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .vn-cta p {
+        font-size: 14px;
+        color: #aaa;
+        max-width: 560px;
+      }
+      .vn-cta .mail {
+        font-size: 13px;
+        color: var(--bu);
+        font-style: italic;
+        margin-top: 6px;
+      }
+      /* Open mic subsection */
+      .omic-label {
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        color: #555;
+        margin: 32px 0 16px;
+        padding-top: 24px;
+        border-top: 1px solid var(--br);
+      }
+
+      /* Write to us modal */
+      .wtu-block {
+        background: rgba(204, 0, 0, 0.07);
+        border: 1px solid rgba(204, 0, 0, 0.2);
+        padding: 28px 34px;
+        margin-top: 3px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        flex-wrap: wrap;
+      }
+      .wtu-block p {
+        font-size: 14px;
+        color: #aaa;
+        max-width: 560px;
+      }
+      .wtu-btn {
+        background: var(--rd);
+        color: #fff;
+        border: none;
+        padding: 11px 22px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-family: var(--bd);
+        flex-shrink: 0;
+      }
+      .wtu-btn:hover {
+        background: var(--rd2);
+      }
+      /* Modal */
+      .modal-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.85);
+        z-index: 500;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(6px);
+      }
+      .modal-overlay.open {
+        display: flex;
+      }
+      .modal-box {
+        background: #111;
+        border: 1px solid var(--br);
+        padding: 48px;
+        max-width: 520px;
+        width: 90%;
+        position: relative;
+      }
+      .modal-close {
+        position: absolute;
+        top: 16px;
+        right: 20px;
+        background: none;
+        border: none;
+        color: #555;
+        font-size: 22px;
+        cursor: pointer;
+        transition: color 0.2s;
+      }
+      .modal-close:hover {
+        color: #fff;
+      }
+      .modal-title {
+        font-family: var(--hd);
+        font-size: 36px;
+        letter-spacing: 2px;
+        margin-bottom: 6px;
+      }
+      .modal-sub {
+        font-size: 13px;
+        color: #666;
+        margin-bottom: 32px;
+      }
+      .modal-line {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 0;
+        border-bottom: 1px solid var(--br);
+      }
+      .modal-line:last-child {
+        border: none;
+      }
+      .modal-ico {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 16px;
+        flex-shrink: 0;
+      }
+      .modal-ico.red {
+        background: rgba(204, 0, 0, 0.15);
+      }
+      .modal-ico.bu {
+        background: rgba(26, 86, 219, 0.15);
+      }
+      .modal-ico.ig {
+        background: rgba(255, 214, 0, 0.1);
+      }
+      .modal-line-txt strong {
+        display: block;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: #555;
+        margin-bottom: 2px;
+      }
+      .modal-line-txt a {
+        font-size: 13px;
+        color: #ddd;
+        transition: color 0.2s;
+      }
+      .modal-line-txt a:hover {
+        color: #fff;
+      }
+
+      /* TEAM */
+      #team {
+        background: var(--bl);
+      }
+      .tm-hd {
+        text-align: center;
+        margin-bottom: 48px;
+      }
+      .tm-hd .sec-h {
+        font-size: clamp(40px, 5vw, 70px);
+      }
+      .tm-hd .sub-txt {
+        margin: 12px auto 0;
+      }
+      .tm-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+      }
+      .tm-card {
+        background: var(--card);
+        border: 1px solid var(--br);
+        overflow: hidden;
+      }
+      .tm-photo {
+        aspect-ratio: 3/4;
+        max-height: 260px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .tm-photo .sil {
+        font-size: 70px;
+        opacity: 0.18;
+        pointer-events: none;
+        position: absolute;
+        bottom: 0;
+      }
+      .tm-body {
+        padding: 18px;
+      }
+      .tm-body h3 {
+        font-family: var(--hd);
+        font-size: 17px;
+        letter-spacing: 1px;
+        margin-bottom: 6px;
+      }
+      .tm-body .tag-inline {
+        margin-bottom: 9px;
+        display: block;
+      }
+      .tm-body p {
+        font-size: 12px;
+        line-height: 1.65;
+        color: #666;
+      }
+
+      /* PRESS */
+      #press {
+        background: var(--mid);
+      }
+      .pr-hd {
+        margin-bottom: 30px;
+      }
+      .pr-hd .sec-h {
+        font-size: clamp(40px, 5vw, 68px);
+      }
+      .pr-kit {
+        background: var(--card);
+        border: 1px solid var(--br);
+        padding: 26px 32px;
+        margin-bottom: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+      .pr-kit-t h3 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 5px;
+      }
+      .pr-kit-t p {
+        font-size: 13px;
+        color: #777;
+        max-width: 520px;
+        line-height: 1.6;
+      }
+      .btn-bu {
+        display: inline-block;
+        background: var(--bu);
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: background 0.2s;
+        font-family: var(--bd);
+        flex-shrink: 0;
+      }
+      .btn-bu:hover {
+        background: #1345b0;
+      }
+      .pr-reviews {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        margin-bottom: 36px;
+      }
+      .pr-card {
+        background: var(--card);
+        border: 1px solid var(--br);
+        padding: 26px;
+        position: relative;
+        overflow: hidden;
+      }
+      .pr-card::before {
+        content: '"';
+        font-family: var(--hd);
+        font-size: 96px;
+        color: rgba(204, 0, 0, 0.18);
+        position: absolute;
+        top: -14px;
+        left: 10px;
+        line-height: 1;
+        pointer-events: none;
+      }
+      .pr-type {
+        font-size: 9px;
+        letter-spacing: 2.5px;
+        text-transform: uppercase;
+        color: var(--rd);
+        font-weight: 700;
+        margin-bottom: 3px;
+      }
+      .pr-text {
+        font-size: 14px;
+        line-height: 1.75;
+        color: #ccc;
+        margin-bottom: 16px;
+        padding-top: 38px;
+      }
+      .pr-author {
+        font-size: 13px;
+        font-weight: 700;
+        color: #fff;
+      }
+      .pr-role {
+        font-size: 11px;
+        color: #555;
+        margin-top: 2px;
+      }
+      .pr-photos {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2px;
+      }
+      .pr-photo {
+        aspect-ratio: 1;
+        position: relative;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .pr-photo .pr-ico {
+        font-size: 36px;
+        opacity: 0.18;
+        pointer-events: none;
+      }
+      .pr-photo-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 8px;
+        font-size: 9px;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.3);
+        text-align: center;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+      }
+
+      /* CONTACT */
+      #contact {
+        background: var(--bl);
+      }
+      .ct-hd {
+        margin-bottom: 48px;
+      }
+      .ct-hd .sec-h {
+        font-size: clamp(38px, 5vw, 70px);
+      }
+      .ct-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.15fr;
+        gap: 2px;
+      }
+      .ct-left {
+        background: var(--rd);
+        padding: 42px;
+      }
+      .ct-left h3 {
+        font-family: var(--hd);
+        font-size: 22px;
+        letter-spacing: 2px;
+        margin-bottom: 26px;
+      }
+      .ct-item {
+        margin-bottom: 18px;
+      }
+      .ct-item strong {
+        display: block;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 1.5px;
+        color: #fff;
+        margin-bottom: 3px;
+      }
+      .ct-item a,
+      .ct-item span {
+        color: rgba(255, 210, 210, 0.9);
+        font-size: 14px;
+        font-style: italic;
+      }
+      .ct-item a:hover {
+        color: #fff;
+      }
+      hr.ct-div {
+        border: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.22);
+        margin: 26px 0;
+      }
+      .ct-social h3 {
+        font-family: var(--hd);
+        font-size: 20px;
+        letter-spacing: 2px;
+        margin-bottom: 12px;
+      }
+      .ct-social a {
+        display: block;
+        color: rgba(255, 210, 210, 0.9);
+        font-size: 14px;
+        font-style: italic;
+        margin-bottom: 7px;
+        transition: color 0.2s;
+      }
+      .ct-social a:hover {
+        color: #fff;
+      }
+      .ct-right {
+        background: var(--card);
+        padding: 42px;
+        border: 1px solid var(--br);
+      }
+      .ct-right-hd h3 {
+        font-family: var(--hd);
+        font-size: 22px;
+        letter-spacing: 2px;
+        margin-bottom: 10px;
+      }
+      .ct-right-hd p {
+        font-size: 13px;
+        color: #777;
+        line-height: 1.65;
+        margin-bottom: 28px;
+      }
+      .ct-opt {
+        border-bottom: 1px solid var(--br);
+        padding: 18px 0;
+      }
+      .ct-opt:last-of-type {
+        border: none;
+      }
+      .ct-opt-n {
+        font-family: var(--hd);
+        font-size: 12px;
+        color: #333;
+        margin-bottom: 2px;
+      }
+      .ct-opt h4 {
+        font-size: 15px;
+        font-weight: 700;
+        margin-bottom: 4px;
+      }
+      .ct-opt p {
+        font-size: 13px;
+        color: #666;
+      }
+      .btn-mail {
+        display: inline-block;
+        background: var(--bu);
+        color: #fff;
+        border: none;
+        padding: 11px 24px;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        cursor: pointer;
+        margin-top: 26px;
+        transition: background 0.2s;
+        font-family: var(--bd);
+      }
+      .btn-mail:hover {
+        background: #1345b0;
+      }
+
+      /* FOOTER */
+      footer {
+        background: var(--mid);
+        border-top: 1px solid var(--br);
+        padding: 36px 0;
+        text-align: center;
+      }
+      .ft-logo {
+        font-family: var(--hd);
+        font-size: 17px;
+        letter-spacing: 5px;
+        color: #333;
+        margin-bottom: 10px;
+      }
+      footer p {
+        font-size: 11px;
+        color: #444;
+        margin-bottom: 6px;
+      }
+      footer a {
+        color: var(--rd);
+      }
+
+      /* PHOTO GRADIENTS — Artists */
+      .g-mirko {
+        background: linear-gradient(
+          160deg,
+          #06060e 0%,
+          #0c0c30 45%,
+          #16106a 70%,
+          #06060e 100%
+        );
+      }
+      .g-kirreu {
+        background: linear-gradient(
+          160deg,
+          #0e0606 0%,
+          #260808 45%,
+          #460f0f 70%,
+          #0e0606 100%
+        );
+      }
+      .g-daniel {
+        background: linear-gradient(
+          160deg,
+          #020b0e 0%,
+          #031622 45%,
+          #053444 70%,
+          #020b0e 100%
+        );
+      }
+      .g-hugh {
+        background: linear-gradient(
+          160deg,
+          #060606 0%,
+          #111 45%,
+          #1e1e1e 70%,
+          #060606 100%
+        );
+      }
+      .g-ryan {
+        background: linear-gradient(
+          160deg,
+          #0a0500 0%,
+          #1a0e00 45%,
+          #321800 70%,
+          #0a0500 100%
+        );
+      }
+      .g-rufus {
+        background: linear-gradient(
+          160deg,
+          #080010 0%,
+          #14002c 45%,
+          #280060 70%,
+          #080010 100%
+        );
+      }
+      .g-sean {
+        background: linear-gradient(
+          160deg,
+          #001008 0%,
+          #002016 45%,
+          #003824 70%,
+          #001008 100%
+        );
+      }
+      /* Placeholders */
+      .g-tba1 {
+        background: linear-gradient(
+          160deg,
+          #0e0e00 0%,
+          #1e1e00 45%,
+          #2e2c00 70%,
+          #0e0e00 100%
+        );
+      }
+      .g-tba2 {
+        background: linear-gradient(
+          160deg,
+          #000e0e 0%,
+          #001c1c 45%,
+          #002c2c 70%,
+          #000e0e 100%
+        );
+      }
+      .g-tba3 {
+        background: linear-gradient(
+          160deg,
+          #0a0008 0%,
+          #160012 45%,
+          #24001e 70%,
+          #0a0008 100%
+        );
+      }
+      /* Team */
+      .g-rick {
+        background: linear-gradient(
+          160deg,
+          #0c0800 0%,
+          #1c1400 45%,
+          #2c2000 70%,
+          #0c0800 100%
+        );
+      }
+      .g-elia {
+        background: linear-gradient(
+          160deg,
+          #001010 0%,
+          #001a1a 45%,
+          #003030 70%,
+          #001010 100%
+        );
+      }
+      .g-silvia {
+        background: linear-gradient(
+          160deg,
+          #070010 0%,
+          #10001e 45%,
+          #1e0040 70%,
+          #070010 100%
+        );
+      }
+      .g-scotty {
+        background: linear-gradient(
+          160deg,
+          #120800 0%,
+          #261400 45%,
+          #3a1c00 70%,
+          #120800 100%
+        );
+      }
+      .g-will {
+        background: linear-gradient(
+          160deg,
+          #00080e 0%,
+          #001022 45%,
+          #001c3a 70%,
+          #00080e 100%
+        );
+      }
+      .g-tessa {
+        background: linear-gradient(
+          160deg,
+          #0e0006 0%,
+          #1c000e 45%,
+          #2c001a 70%,
+          #0e0006 100%
+        );
+      }
+      .g-russell {
+        background: linear-gradient(
+          160deg,
+          #080e00 0%,
+          #121c00 45%,
+          #1e2c00 70%,
+          #080e00 100%
+        );
+      }
+      .g-ed {
+        background: linear-gradient(
+          160deg,
+          #0a0a00 0%,
+          #181800 45%,
+          #262400 70%,
+          #0a0a00 100%
+        );
+      }
+      .g-sean-t {
+        background: linear-gradient(
+          160deg,
+          #001808 0%,
+          #002c14 45%,
+          #004020 70%,
+          #001808 100%
+        );
+      }
+      /* Venues */
+      .g-fabwick {
+        background: linear-gradient(
+          160deg,
+          #0a0800 0%,
+          #181400 45%,
+          #261e00 70%,
+          #0a0800 100%
+        );
+      }
+      .g-roxy {
+        background: linear-gradient(
+          160deg,
+          #0a0008 0%,
+          #16000e 45%,
+          #260018 70%,
+          #0a0008 100%
+        );
+      }
+      .g-ding {
+        background: linear-gradient(
+          160deg,
+          #00060c 0%,
+          #000e16 45%,
+          #001826 70%,
+          #00060c 100%
+        );
+      }
+      .g-jamjar {
+        background: linear-gradient(
+          160deg,
+          #080a00 0%,
+          #141600 45%,
+          #202000 70%,
+          #080a00 100%
+        );
+      }
+      .g-lvls {
+        background: linear-gradient(
+          160deg,
+          #0a0000 0%,
+          #1a0000 45%,
+          #2a0000 70%,
+          #0a0000 100%
+        );
+      }
+      .g-barkett {
+        background: linear-gradient(
+          160deg,
+          #000a04 0%,
+          #001408 45%,
+          #002214 70%,
+          #000a04 100%
+        );
+      }
+      .g-ny1 {
+        background: linear-gradient(
+          160deg,
+          #06000a 0%,
+          #0e0020 45%,
+          #180040 70%,
+          #06000a 100%
+        );
+      }
+      /* Press photos */
+      .g-p1 {
+        background: linear-gradient(
+          135deg,
+          #0a0000 0%,
+          #280000 50%,
+          #500000 100%
+        );
+      }
+      .g-p2 {
+        background: linear-gradient(
+          135deg,
+          #00000e 0%,
+          #00083c 50%,
+          #000e70 100%
+        );
+      }
+      .g-p3 {
+        background: linear-gradient(
+          135deg,
+          #060606 0%,
+          #141414 50%,
+          #242424 100%
+        );
+      }
+      .g-p4 {
+        background: linear-gradient(
+          135deg,
+          #050008 0%,
+          #0e0024 50%,
+          #1c0048 100%
+        );
+      }
+      .g-p1::after,
+      .g-p2::after,
+      .g-p3::after,
+      .g-p4::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse at 50% 30%,
+          rgba(255, 255, 255, 0.07) 0,
+          transparent 70%
+        );
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 1024px) {
+        #home .wrap {
+          grid-template-columns: 1fr;
+        }
+        .h-visual {
+          display: none;
+        }
+        .ab-grid {
+          grid-template-columns: 1fr;
+        }
+        .ev-inner {
+          grid-template-columns: 1fr;
+        }
+        .ev-image {
+          display: none;
+        }
+        .bj-inner {
+          grid-template-columns: 1fr;
+        }
+        .bj-right {
+          display: none;
+        }
+        .tm-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ct-grid {
+          grid-template-columns: 1fr;
+        }
+        .vn-wide {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        .n-links {
+          display: none;
+        }
+        .ro-grid,
+        .vn-grid-3,
+        .vn-grid-2 {
+          grid-template-columns: 1fr 1fr;
+        }
+        .pr-reviews {
+          grid-template-columns: 1fr;
+        }
+        .pr-photos {
+          grid-template-columns: repeat(2, 1fr);
+        }
+        .ab-pillars {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 560px) {
+        .ro-grid,
+        .vn-grid-3,
+        .vn-grid-2 {
+          grid-template-columns: 1fr;
+        }
+        .tm-grid {
+          grid-template-columns: 1fr 1fr;
+        }
+        .pr-photos {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="wrap">
+        <div class="n-logo" onclick="scrollTo('#home')">
+          <div class="n-logo-dot">
+            <svg viewBox="0 0 24 24">
+              <circle
+                cx="12"
+                cy="12"
+                r="10"
+                fill="none"
+                stroke="#fff"
+                stroke-width="1.5"
+              />
+              <circle cx="12" cy="12" r="3" fill="#fff" />
+              <path
+                d="M6 12 Q6 6 12 6"
+                stroke="#fff"
+                stroke-width="1.5"
+                fill="none"
+              />
+              <path
+                d="M18 12 Q18 6 12 6"
+                stroke="#fff"
+                stroke-width="1.5"
+                fill="none"
+              />
+            </svg>
+          </div>
+          <span>Accelerando<br />RECORDS</span>
+        </div>
+        <ul class="n-links">
+          <li><a href="#home" data-i18n="n1">Home</a></li>
+          <li><a href="#artists" data-i18n="n2">Artists</a></li>
+          <li><a href="#events" data-i18n="n3">Events</a></li>
+          <li><a href="#battlejam" data-i18n="nBJ">Battle Jam</a></li>
+          <li><a href="#venues" data-i18n="n4">Venues</a></li>
+          <li><a href="#team" data-i18n="n5">Team</a></li>
+          <li><a href="#press" data-i18n="n6">Press</a></li>
+          <li><a href="#contact" data-i18n="n7">Contact</a></li>
+        </ul>
+        <div class="n-right">
+          <button id="langBtn">DE</button>
+          <button
+            class="n-cta"
+            onclick="
+              document
+                .getElementById('events')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+            data-i18n="nCTA"
+          >
+            Get your Ticket
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section id="home">
+      <div class="h-bg"></div>
+      <div class="wrap">
+        <div class="h-left">
+          <div class="h-tag" data-i18n="hTag">
+            Independent Record Label &amp; Event Promoter
+          </div>
+          <h1 class="h-title">
+            <span class="y" data-i18n="hL1">We Find the Sound</span>
+            <span data-i18n="hL2">Before the World Does</span>
+          </h1>
+          <p class="h-desc" data-i18n="hDesc">
+            Accelerando Records is an independent record label and live music
+            promotion company born in UK. We sign bold artists, press real
+            records, and throw nights people don't forget. Raw music. Real
+            stages. No compromise.
+          </p>
+          <p class="h-cities" data-i18nHTML="hCities">
+            Now hosting events in <span class="rl">London</span>,
+            <span class="bl">Berlin</span> and <span class="ny">New York</span>!
+          </p>
+          <div class="h-btns">
+            <button
+              class="btn-r"
+              onclick="
+                document
+                  .getElementById('artists')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+              data-i18n="hB1"
+            >
+              Discover Our Artists
+            </button>
+            <button
+              class="btn-yw"
+              onclick="
+                document
+                  .getElementById('events')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+              data-i18n="hB2"
+            >
+              Upcoming Events
+            </button>
+          </div>
+        </div>
+        <div class="h-visual">
+          <div class="h-frame" style="background: transparent; border: none">
+            <img
+              src="Images/logo.png"
+              alt="Accelerando Records"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                padding: 20px;
+              "
+            />
+            <div class="h-waves" id="waves"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="wrap">
+        <div class="sec-tag" data-i18n="abTag">About Us</div>
+        <h2 class="ab-title" data-i18n="abTitle">
+          Built on the Belief That&#10;Music Changes Everything
+        </h2>
+        <div class="ab-grid">
+          <div class="ab-story">
+            <h3 data-i18n="abStoryH">Our Story</h3>
+            <p data-i18n="abS1">
+              Accelerando Records was founded by obsessives — people who stayed
+              until the last song, who spent rent money on vinyl, who believed
+              the underground had something the mainstream could never buy. We
+              started as a one-room operation in a London backstreet. We're
+              still in that spirit.
+            </p>
+            <p data-i18n="abS2">We champion original artists at every stage.</p>
+            <p data-i18n="abS3">
+              Live events. Record label. Community. That's the whole machine.
+            </p>
+          </div>
+          <div class="ab-logo-box">
+            <img
+              src="Images/logo.png"
+              alt="Accelerando Records"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                padding: 32px;
+              "
+            />
+          </div>
+        </div>
+        <blockquote class="ab-quote" data-i18n="abQ">
+          We don't sign trends. We sign people who'd make music in a blackout.
+          The sound is the point. Always has been.
+        </blockquote>
+        <div class="ab-pillars">
+          <div class="ab-pillar">
+            <h4 data-i18n="abP1H">Live Events</h4>
+            <p data-i18n="abP1D">
+              Curated nights at venues that respect the music. Intimate, loud,
+              and unforgettable.
+            </p>
+          </div>
+          <div class="ab-pillar">
+            <h4 data-i18n="abP2H">Artist Development</h4>
+            <p data-i18n="abP2D">
+              We grow with our artists — long term. Press, booking, strategy,
+              real talk.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ROSTER -->
+    <section id="artists">
+      <div class="wrap">
+        <div class="ro-hd">
+          <div class="sec-tag" data-i18n="roTag">Musicians</div>
+          <h2
+            class="sec-h"
+            style="font-size: clamp(40px, 5vw, 70px)"
+            data-i18n="roTitle"
+          >
+            The Roster
+          </h2>
+          <p class="sub-txt" style="margin-top: 12px" data-i18n="roSub">
+            Every artist on our label was found in a basement, a late-night
+            session, or a demo inbox at 2am. These are the ones we bet on.
+          </p>
+        </div>
+        <div class="ro-grid">
+          <!-- Signed artists -->
+          <div class="art-card">
+            <div class="art-photo" style="background: #0e0e0e">
+              <img
+                src="Images/artist_mirko.jpg"
+                alt="Mirko Fadda"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  position: absolute;
+                  inset: 0;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="art-body">
+              <h3 data-i18n="a1n">Mirko Fadda</h3>
+              <span class="tag-inline" data-i18n="a1t"
+                >Guitarist / Progressive Rock</span
+              >
+              <p data-i18n="a1b">
+                A self-taught guitarist from Puglia, Italy, influenced by
+                progressive rock and metal legends. Channelled his passion into
+                "Egolution," a self-produced melodic instrumental single for
+                solo guitar.
+              </p>
+              <button class="art-btn" data-i18n="roBtn">Artist info</button>
+            </div>
+          </div>
+          <div class="art-card">
+            <div class="art-photo" style="background: #0e0e0e">
+              <img
+                src="Images/artist_kirreu.jpg"
+                alt="Kirreu"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  position: absolute;
+                  inset: 0;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="art-body">
+              <h3 data-i18n="a2n">Kirreu</h3>
+              <span class="tag-inline" data-i18n="a2t"
+                >Bass &amp; Drums / Alternative Rock</span
+              >
+              <p data-i18n="a2b">
+                A Wellington-based musician from New Zealand, bringing a
+                rhythmic foundation as a multi-instrumentalist specialising in
+                bass and drums.
+              </p>
+              <button class="art-btn" data-i18n="roBtn">Artist info</button>
+            </div>
+          </div>
+          <div class="art-card">
+            <div class="art-photo" style="background: #0e0e0e">
+              <img
+                src="Images/artist_daniel.jpg"
+                alt="Daniel Bryan"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  position: absolute;
+                  inset: 0;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="art-body">
+              <h3 data-i18n="a3n">Daniel Bryan</h3>
+              <span class="tag-inline" data-i18n="a3t"
+                >Multi-instrumentalist / Modern Jazz</span
+              >
+              <p data-i18n="a3b">
+                A Malaysian-born pianist based in the UK, classically trained
+                from childhood and inspired by jazz greats like Herbie Hancock.
+                His ambition: make sophisticated music accessible to younger
+                audiences.
+              </p>
+              <button class="art-btn" data-i18n="roBtn">Artist info</button>
+            </div>
+          </div>
+          <div class="art-card">
+            <div class="art-photo" style="background: #0e0e0e">
+              <img
+                src="Images/artist_hugh.jpg"
+                alt="Hugh Baker"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  position: absolute;
+                  inset: 0;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="art-body">
+              <h3 data-i18n="a4n">Hugh Baker</h3>
+              <span class="tag-inline" data-i18n="a4t"
+                >Drummer / Percussionist</span
+              >
+              <p data-i18n="a4b">
+                A London-based drummer open to a wide range of musical
+                collaborations, from musical theatre and live gigs to teaching.
+              </p>
+              <button class="art-btn" data-i18n="roBtn">Artist info</button>
+            </div>
+          </div>
+          <div class="art-card">
+            <div class="art-photo" style="background: #0e0e0e">
+              <img
+                src="Images/artist_ryan.jpg"
+                alt="Ryan Windross"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  position: absolute;
+                  inset: 0;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="art-body">
+              <h3 data-i18n="a5n">Ryan Windross</h3>
+              <span class="tag-inline" data-i18n="a5t"
+                >Multi-genre Bass Player</span
+              >
+              <p data-i18n="a5b">
+                A versatile London-based bass player and producer with an
+                extensive live performance record spanning soul, reggae, and
+                beyond — active with Soul Rebel Band, The Dualers, and
+                Karmahead.
+              </p>
+              <button class="art-btn" data-i18n="roBtn">Artist info</button>
+            </div>
+          </div>
+          <div class="art-card">
+            <div class="art-photo" style="background: #0e0e0e">
+              <img
+                src="Images/artist_rufus.jpg"
+                alt="Rufus Miller"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  position: absolute;
+                  inset: 0;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="art-body">
+              <h3 data-i18n="a6n">Rufus Miller</h3>
+              <span class="tag-inline" data-i18n="a6t"
+                >Drummer / Alternative Psych Rock</span
+              >
+              <p data-i18n="a6b">
+                A London-based alternative psych rock solo artist performing as
+                a power trio. His third album <em>Basement</em> earned critical
+                acclaim following extensive touring across the UK and Czech
+                Republic.
+              </p>
+              <button class="art-btn" data-i18n="roBtn">Artist info</button>
+            </div>
+          </div>
+          <div class="art-card">
+            <div class="art-photo" style="background: #0e0e0e">
+              <img
+                src="Images/artist_sean.jpeg"
+                alt="Sean Hill"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  position: absolute;
+                  inset: 0;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="art-body">
+              <h3>Sean Hill</h3>
+              <span class="tag-inline">Multi-instrumentalist / House Band</span>
+              <p>
+                Luton-based guitarist, keyboardist, bassist, drummer and
+                vocalist spanning Rock, Electronic, Blues, Alternative and Hip
+                Hop. A high-energy performer and passionate supporter of live
+                music, Sean has played multiple Accelerando events and is a
+                cornerstone of the house band.
+              </p>
+              <button class="art-btn" data-i18n="roBtn">Artist info</button>
+            </div>
+          </div>
+          <!-- House Band placeholders — bios & photos coming soon -->
+          <div class="art-card coming-soon">
+            <div
+              class="art-photo g-tba1"
+              style="flex-direction: column; gap: 10px"
+            >
+              <svg
+                class="sil"
+                viewBox="0 0 100 160"
+                fill="rgba(255,255,255,0.4)"
+              >
+                <ellipse cx="50" cy="25" rx="18" ry="20" />
+                <rect x="30" y="48" width="40" height="55" rx="8" />
+                <rect x="12" y="52" width="20" height="36" rx="8" />
+                <rect x="68" y="52" width="20" height="36" rx="8" />
+                <rect x="30" y="105" width="16" height="50" rx="7" />
+                <rect x="54" y="105" width="16" height="50" rx="7" />
+              </svg>
+            </div>
+            <div class="art-body">
+              <h3 style="color: #555">Coming Soon</h3>
+              <span class="tag-inline">House Band</span>
+              <p style="color: #444">Bio and photos on the way. Stay tuned.</p>
+            </div>
+          </div>
+          <div class="art-card coming-soon">
+            <div class="art-photo g-tba2">
+              <svg
+                class="sil"
+                viewBox="0 0 100 160"
+                fill="rgba(255,255,255,0.4)"
+              >
+                <ellipse cx="50" cy="25" rx="18" ry="20" />
+                <rect x="30" y="48" width="40" height="55" rx="8" />
+                <rect x="12" y="52" width="20" height="36" rx="8" />
+                <rect x="68" y="52" width="20" height="36" rx="8" />
+                <rect x="30" y="105" width="16" height="50" rx="7" />
+                <rect x="54" y="105" width="16" height="50" rx="7" />
+              </svg>
+            </div>
+            <div class="art-body">
+              <h3 style="color: #555">Coming Soon</h3>
+              <span class="tag-inline">House Band</span>
+              <p style="color: #444">Bio and photos on the way. Stay tuned.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ro-cta">
+          <p data-i18nHTML="roCTA">
+            Got something worth hearing? <strong>Submit your demo</strong> — we
+            listen to everything. No gatekeeping.
+          </p>
+          <button
+            class="btn-r"
+            onclick="
+              document
+                .getElementById('contact')
+                .scrollIntoView({ behavior: 'smooth' })
+            "
+            data-i18n="roCTABtn"
+          >
+            Submit Your Demo
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- EVENTS -->
+    <section id="events">
+      <div class="wrap">
+        <div class="ev-inner">
+          <div class="ev-image">
+            <div class="ev-img">
+              <div class="spotlight"></div>
+              <div class="crowd-ico">🎶</div>
+            </div>
+          </div>
+          <div class="ev-content">
+            <div class="sec-tag" data-i18n="evTag">Events</div>
+            <h2 class="ev-h" data-i18n="evTitle">
+              Live. Loud.&#10;Uncompromising.
+            </h2>
+            <p class="ev-desc" data-i18n="evDesc">
+              We produce events that feel like something. Carefully chosen
+              venues, artists who deliver, audiences who actually show up for
+              the music.
+            </p>
+            <div class="ev-card">
+              <div class="ev-meta" data-i18n="e1d">24 JUN 2026 — LONDON</div>
+              <h3 data-i18n="e1h">
+                The Spotlight Lounge | Live Music Showcase
+              </h3>
+              <p class="ev-det" data-i18nHTML="e1i">
+                Venue: <span class="hl">The Roxy, Soho</span> · Doors:
+                <span class="hl">19:00</span>
+              </p>
+            </div>
+            <div class="ev-card">
+              <div class="ev-meta" data-i18n="e2d">25 JUN 2026 — LONDON</div>
+              <h3 data-i18n="e2h">
+                The Spotlight Lounge | Live Music Showcase
+              </h3>
+              <p class="ev-det" data-i18nHTML="e2i">
+                Venue: <span class="hl">Fabwick, Hackney Wick</span> · Doors:
+                <span class="hl">20:00</span>
+              </p>
+            </div>
+            <div class="ev-card">
+              <div class="ev-meta" data-i18n="e3d">26 JUN 2026 — LONDON</div>
+              <h3 data-i18n="e3h">
+                The Spotlight Lounge | Live Music Showcase
+              </h3>
+              <p class="ev-det" data-i18nHTML="e3i">
+                Venue: <span class="hl">The Roxy, Soho</span> · Doors:
+                <span class="hl">19:00</span>
+              </p>
+            </div>
+            <button class="ev-btn" data-i18n="evBtn">Buy Tickets</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BATTLE JAM -->
+    <section id="battlejam">
+      <div class="wrap">
+        <div class="bj-inner">
+          <div class="bj-left">
+            <div class="sec-tag rd" data-i18n="bjTag">Battle Jam</div>
+            <h2 class="bj-title">
+              <span class="bj-red" data-i18n="bjL1">The</span><br /><span
+                data-i18n="bjL2"
+                >Battle Jam</span
+              >
+            </h2>
+            <p class="bj-sub" data-i18n="bjSub">
+              Born at The Roxy. Accelerando's flagship live music competition —
+              artists go head-to-head on stage, the crowd decides who wins. Raw
+              talent, no backing tracks, no safety net. Just music and nerve.
+            </p>
+            <div class="bj-badges">
+              <span class="bj-badge" data-i18n="bjB1"
+                >Live at The Roxy, Soho</span
+              >
+              <span class="bj-badge" data-i18n="bjB2">Head-to-Head Format</span>
+              <span class="bj-badge" data-i18n="bjB3">Crowd Votes</span>
+              <span class="bj-badge" data-i18n="bjB4">All Genres Welcome</span>
+            </div>
+            <button
+              class="bj-btn"
+              onclick="
+                document
+                  .getElementById('contact')
+                  .scrollIntoView({ behavior: 'smooth' })
+              "
+              data-i18n="bjBtn"
+            >
+              Compete or Watch →
+            </button>
+          </div>
+          <div class="bj-right">
+            <div class="bj-visual">
+              <div class="bj-fighters">
+                <div class="bj-fighter">
+                  <div class="ico">🎸</div>
+                  <div class="lbl">Artist A</div>
+                </div>
+                <div class="bj-vs">VS</div>
+                <div class="bj-fighter">
+                  <div class="ico">🥁</div>
+                  <div class="lbl">Artist B</div>
+                </div>
+              </div>
+              <div class="bj-venue-tag">
+                Every month at <strong>The Roxy, Soho · London</strong>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VENUES -->
+    <section id="venues">
+      <div class="wrap">
+        <div class="vn-hd">
+          <div class="sec-tag" data-i18n="vnTag">Venues</div>
+          <h2
+            class="sec-h"
+            style="font-size: clamp(34px, 4.5vw, 58px)"
+            data-i18n="vnTitle"
+          >
+            Spaces That Respect the Sound
+          </h2>
+          <p class="sub-txt" style="margin-top: 12px" data-i18n="vnSub">
+            We only work with venues that care about the music as much as we do.
+            Real acoustics, real atmosphere, real crowds.
+          </p>
+        </div>
+
+        <!-- LONDON -->
+        <div class="city-row">
+          <div class="city-label">
+            <span>🇬🇧</span>
+            <span data-i18n="vnLon">London</span>
+          </div>
+          <div class="vn-grid-3">
+            <div class="vn-card">
+              <div
+                class="vn-photo"
+                style="background: #0e0e0e; overflow: hidden"
+              >
+                <img
+                  src="Images/Fabwick.jpeg"
+                  alt="Fabwick"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                  "
+                />
+              </div>
+              <div class="vn-body">
+                <h3 data-i18n="v1n">Fabwick</h3>
+                <span class="tag-inline" data-i18n="v1c">Cap. 120</span>
+                <p data-i18n="v1d">
+                  A vibrant cultural hub in the heart of Hackney Wick — part
+                  jazz bar, part art gallery, part live music venue. Queen's
+                  Yard's most unexpected and essential night-out.
+                </p>
+                <a
+                  href="https://www.eventbrite.co.uk/e/the-battle-jam-win-300-london-soho-free-entry-tickets-1587819223039"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="bj-btn"
+                  style="display: inline-block; text-decoration: none"
+                >
+                  🎟 FREE ENTRY • REGISTER NOW
+                </a>
+              </div>
+            </div>
+            <div class="vn-card">
+              <div
+                class="vn-photo"
+                style="background: #0e0e0e; overflow: hidden"
+              >
+                <img
+                  src="Images/Roxy.webp"
+                  alt="The Roxy"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                  "
+                />
+              </div>
+              <div class="vn-body">
+                <h3 data-i18n="v2n">The Roxy</h3>
+                <span class="tag-inline" data-i18n="v2c">Cap. 200</span>
+                <p data-i18n="v2d">
+                  A subterranean Soho institution. Where the Battle Jam was
+                  born. Underground acts, Spotlight Lounge and a crowd that has
+                  been chasing real music since the '90s. Wednesday and Friday
+                  nights belong here.
+                </p>
+                <button
+                  class="vn-ticket"
+                  onclick="
+                    document
+                      .getElementById('contact')
+                      .scrollIntoView({ behavior: 'smooth' })
+                  "
+                  data-i18n="vnTicket"
+                >
+                  Get Tickets
+                </button>
+              </div>
+            </div>
+            <div class="vn-card">
+              <div
+                class="vn-photo"
+                style="background: #0e0e0e; overflow: hidden"
+              >
+                <img
+                  src="Images/Dingwall.webp"
+                  alt="T.E. Dingwall"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                  "
+                />
+              </div>
+              <div class="vn-body">
+                <h3 data-i18n="v3n">T.E. Dingwall Building</h3>
+                <span class="tag-inline" data-i18n="v3c">Cap. 600</span>
+                <p data-i18n="v3d">
+                  Camden's most storied live music room, beside the lock. Since
+                  1973, it's hosted everyone from The Clash to Coldplay.
+                  Industrial, canal-side, legendary.
+                </p>
+                <button
+                  class="vn-ticket"
+                  onclick="
+                    document
+                      .getElementById('contact')
+                      .scrollIntoView({ behavior: 'smooth' })
+                  "
+                  data-i18n="vnTicket"
+                >
+                  Get Tickets
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- London — more venues -->
+          <div class="vn-grid-2" style="margin-top: 2px">
+            <div class="vn-card">
+              <div
+                class="vn-photo"
+                style="background: #0e0e0e; overflow: hidden"
+              >
+                <img
+                  src="Images/Jam in A Jar.jpg"
+                  alt="Jam in a Jar"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                  "
+                />
+              </div>
+              <div class="vn-body">
+                <h3 data-i18n="v5n">Jam in a Jar</h3>
+                <span class="tag-inline" data-i18n="v5c">London</span>
+                <p data-i18n="v5d">
+                  Description coming soon. One of Accelerando's key London
+                  stages.
+                </p>
+                <button
+                  class="vn-ticket"
+                  onclick="
+                    document
+                      .getElementById('contact')
+                      .scrollIntoView({ behavior: 'smooth' })
+                  "
+                  data-i18n="vnTicket"
+                >
+                  Get Tickets
+                </button>
+              </div>
+            </div>
+            <div class="vn-card">
+              <div
+                class="vn-photo"
+                style="background: #0e0e0e; overflow: hidden"
+              >
+                <img
+                  src="Images/LVLS.webp"
+                  alt="LVLS"
+                  style="
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    display: block;
+                  "
+                />
+              </div>
+              <div class="vn-body">
+                <h3 data-i18n="v6n">LVLS</h3>
+                <span class="tag-inline" data-i18n="v6c">London</span>
+                <p data-i18n="v6d">
+                  Description coming soon. A key venue in the Accelerando
+                  circuit.
+                </p>
+                <button
+                  class="vn-ticket"
+                  onclick="
+                    document
+                      .getElementById('contact')
+                      .scrollIntoView({ behavior: 'smooth' })
+                  "
+                  data-i18n="vnTicket"
+                >
+                  Get Tickets
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Open Mic nights -->
+          <div class="omic-label" data-i18n="omicLabel">
+            Open Mic Circuit — London
+          </div>
+          <div class="vn-grid-3">
+            <div class="vn-card">
+              <div class="vn-body" style="padding: 24px">
+                <h3
+                  style="font-size: 16px; margin-bottom: 6px"
+                  data-i18n="om1n"
+                >
+                  Open Mic Night #1
+                </h3>
+                <span class="tag-inline" data-i18n="omicTag"
+                  >Open Mic · London</span
+                >
+                <p style="margin-top: 10px" data-i18n="om1d">
+                  Venue details coming soon.
+                </p>
+              </div>
+            </div>
+            <div class="vn-card">
+              <div class="vn-body" style="padding: 24px">
+                <h3
+                  style="font-size: 16px; margin-bottom: 6px"
+                  data-i18n="om2n"
+                >
+                  Open Mic Night #2
+                </h3>
+                <span class="tag-inline" data-i18n="omicTag"
+                  >Open Mic · London</span
+                >
+                <p style="margin-top: 10px" data-i18n="om2d">
+                  Venue details coming soon.
+                </p>
+              </div>
+            </div>
+            <div class="vn-card">
+              <div class="vn-body" style="padding: 24px">
+                <h3
+                  style="font-size: 16px; margin-bottom: 6px"
+                  data-i18n="om3n"
+                >
+                  Open Mic Night #3
+                </h3>
+                <span class="tag-inline" data-i18n="omicTag"
+                  >Open Mic · London</span
+                >
+                <p style="margin-top: 10px" data-i18n="om3d">
+                  Venue details coming soon.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- BERLIN -->
+        <div class="city-row">
+          <div class="city-label b">
+            <span>🇩🇪</span>
+            <span data-i18n="vnBer">Berlin</span>
+          </div>
+          <div class="vn-card vn-wide">
+            <div class="vn-photo" style="background: #0e0e0e; overflow: hidden">
+              <img
+                src="Images/Barkett.jpeg"
+                alt="Barkett"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div
+              class="vn-body"
+              style="
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+              "
+            >
+              <h3 data-i18n="v4n">Barkett</h3>
+              <span class="tag-inline bu" data-i18n="v4c">Cap. 100</span>
+              <p data-i18n="v4d">
+                A cosy neighbourhood bar and live music stage in
+                Berlin-Schöneberg. Open mic nights, craft beers, friendly staff.
+                Exactly the kind of room where real music happens.
+              </p>
+              <button
+                class="vn-ticket bu"
+                style="margin-top: 12px"
+                onclick="
+                  document
+                    .getElementById('contact')
+                    .scrollIntoView({ behavior: 'smooth' })
+                "
+                data-i18n="vnTicket"
+              >
+                Get Tickets
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- NEW YORK -->
+        <div class="city-row">
+          <div class="city-label ny">
+            <span>🇺🇸</span>
+            <span data-i18n="vnNY">New York</span>
+          </div>
+          <div class="vn-card">
+            <div class="vn-photo" style="background: #0e0e0e; overflow: hidden">
+              <img
+                src="Images/Telephone Room.avif"
+                alt="Telephone Room"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                "
+              />
+            </div>
+            <div class="vn-body">
+              <h3 data-i18n="vNY1n">Telephone Room</h3>
+              <span class="tag-inline ny" data-i18n="vNY1c">Brooklyn, NY</span>
+              <p data-i18n="vNY1d">
+                Hidden behind a red phone booth inside a Bushwick coffee shop,
+                Telephone Room is an intimate, red-lit speakeasy built for
+                close, unforgettable nights: vintage charm, a copper bar, and a
+                stage made for our smaller, more personal shows.
+              </p>
+              <button
+                class="vn-ticket ny"
+                onclick="
+                  document
+                    .getElementById('contact')
+                    .scrollIntoView({ behavior: 'smooth' })
+                "
+                data-i18n="vnTicket"
+              >
+                Get Tickets
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Write to Us -->
+        <div class="wtu-block">
+          <div>
+            <p
+              style="
+                color: #ccc;
+                font-size: 15px;
+                font-weight: 600;
+                margin-bottom: 4px;
+              "
+              data-i18n="wtuTitle"
+            >
+              Want to host an Accelerando night?
+            </p>
+            <p data-i18n="wtuSub">
+              We bring the lineup, the production, and the crowd. You bring the
+              room. Get in touch through any of our channels.
+            </p>
+          </div>
+          <button
+            class="wtu-btn"
+            onclick="
+              document.getElementById('contactModal').classList.add('open')
+            "
+            data-i18n="wtuBtn"
+          >
+            Write to Us
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team">
+      <div class="wrap">
+        <div class="tm-hd">
+          <div class="sec-tag" data-i18n="tmTag">Team</div>
+          <h2
+            class="sec-h"
+            style="font-size: clamp(40px, 5vw, 70px)"
+            data-i18n="tmTitle"
+          >
+            Our Team
+          </h2>
+          <p class="sub-txt" data-i18n="tmSub">
+            Our internal team manages events, administration, and artist support
+            behind the scenes. They keep everything organised, moving, and ready
+            for the show.
+          </p>
+        </div>
+        <div class="tm-grid">
+          <div class="tm-card">
+            <div class="tm-photo" style="background: #0e0e0e; overflow: hidden">
+              <img
+                src="Images/Riccardo.jpg"
+                alt="Riccardo Elisei"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                  object-position: top;
+                "
+              />
+            </div>
+            <div class="tm-body">
+              <h3 data-i18n="t1n">Riccardo Elisei (Rick)</h3>
+              <span class="tag-inline bu" data-i18n="t1r">CEO</span>
+              <p data-i18n="t1b">
+                The founder and creative force behind Accelerando Records — from
+                a London backstreet to stages across Europe and New York.
+              </p>
+            </div>
+          </div>
+          <div class="tm-card">
+            <div class="tm-photo" style="background: #0e0e0e; overflow: hidden">
+              <img
+                src="Images/Elia.jpeg"
+                alt="Elia Longo"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                  object-position: top;
+                "
+              />
+            </div>
+            <div class="tm-body">
+              <h3 data-i18n="t2n">Elia Longo</h3>
+              <span class="tag-inline bu" data-i18n="t2r"
+                >Event Manager &amp; A&amp;R | London</span
+              >
+              <p data-i18n="t2b">
+                Actor, host, and promoter — the driving force behind
+                Accelerando's London events. With a sharp instinct for live
+                energy and audience connection, he produces events that blend
+                performance, music, and culture.
+              </p>
+            </div>
+          </div>
+          <div class="tm-card">
+            <div class="tm-photo" style="background: #0e0e0e; overflow: hidden">
+              <img
+                src="Images/Silvia.jpeg"
+                alt="Silvia d'Amore"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                  object-position: top;
+                "
+              />
+            </div>
+            <div class="tm-body">
+              <h3 data-i18n="t3n">Silvia d'Amore</h3>
+              <span class="tag-inline bu" data-i18n="t3r"
+                >Event Manager &amp; A&amp;R | Berlin</span
+              >
+              <p data-i18n="t3b">
+                The host behind Accelerando's Berlin events. Silvia combines
+                experience in marketing and live events with a genuine passion
+                for building spaces where artists and audiences actually
+                connect.
+              </p>
+            </div>
+          </div>
+          <div class="tm-card">
+            <div class="tm-photo" style="background: #0e0e0e; overflow: hidden">
+              <img
+                src="Images/Scotty.jpeg"
+                alt="Scotty"
+                style="
+                  width: 100%;
+                  height: 100%;
+                  object-fit: cover;
+                  display: block;
+                  object-position: top;
+                "
+              />
+            </div>
+            <div class="tm-body">
+              <h3 data-i18n="t4n">Scotty</h3>
+              <span class="tag-inline bu" data-i18n="t4r"
+                >Host | Artist by Accelerando</span
+              >
+              <p data-i18n="t4b">
+                Three people making a sound like six. Volta Nera's live show is
+                a controlled explosion. Signed 2023.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRESS -->
+    <section id="press">
+      <div class="wrap">
+        <div class="pr-hd">
+          <div class="sec-tag" data-i18n="prTag">Press &amp; Media</div>
+          <h2
+            class="sec-h"
+            style="font-size: clamp(40px, 5vw, 68px)"
+            data-i18n="prTitle"
+          >
+            What They're Saying
+          </h2>
+        </div>
+        <div class="pr-kit">
+          <div class="pr-kit-t">
+            <h3 data-i18n="prKitH">Press Kit</h3>
+            <p data-i18n="prKitD">
+              Everything you need: hi-res artist photos, label logos, bios, and
+              release one-sheets. Download the full press kit or request assets
+              directly.
+            </p>
+          </div>
+          <a
+            href="mailto:Bookings.accelerando@gmail.com?subject=Press%20Kit%20Request"
+            class="btn-bu"
+            data-i18n="prKitBtn"
+            >Download Press Kit</a
+          >
+        </div>
+        <div class="pr-reviews">
+          <div class="pr-card">
+            <div class="pr-type" data-i18n="r1type">Audience</div>
+            <p class="pr-text" data-i18n="r1text">
+              "I walked into Fabwick not knowing what to expect and left
+              completely blown away. Accelerando doesn't just book artists —
+              they build an entire experience around the music."
+            </p>
+            <div class="pr-author" data-i18n="r1a">Emma R.</div>
+            <div class="pr-role" data-i18n="r1s">London · Audience</div>
+          </div>
+          <div class="pr-card">
+            <div class="pr-type" data-i18n="r2type">Audience</div>
+            <p class="pr-text" data-i18n="r2text">
+              "The energy at Barkett that night was unlike anything I'd felt in
+              a long time. You could tell everyone in the room was there for the
+              music. That's rare."
+            </p>
+            <div class="pr-author" data-i18n="r2a">Marco T.</div>
+            <div class="pr-role" data-i18n="r2s">Berlin · Audience</div>
+          </div>
+          <div class="pr-card">
+            <div class="pr-type" data-i18n="r3type">Audience</div>
+            <p class="pr-text" data-i18n="r3text">
+              "The Spotlight Lounge is the best thing happening in London right
+              now. Found two new favourite artists in one evening. No gimmicks,
+              just real music."
+            </p>
+            <div class="pr-author" data-i18n="r3a">Sarah K.</div>
+            <div class="pr-role" data-i18n="r3s">London · Audience</div>
+          </div>
+          <div class="pr-card">
+            <div class="pr-type" data-i18n="r4type">Battle Jam</div>
+            <p class="pr-text" data-i18n="r4text">
+              "The Battle Jam at The Roxy was something else. Two artists, one
+              stage, no script — the crowd went wild. I've never felt energy
+              like that in a live room. This is what it's all about."
+            </p>
+            <div class="pr-author" data-i18n="r4a">James W.</div>
+            <div class="pr-role" data-i18n="r4s">Audience · The Roxy, Soho</div>
+          </div>
+          <div class="pr-card">
+            <div class="pr-type" data-i18n="r5type">Artist</div>
+            <p class="pr-text" data-i18n="r5text">
+              "Playing a Barkett night was one of my best gigs this year. The
+              crowd was there for the music. What else do you need?"
+            </p>
+            <div class="pr-author" data-i18n="r5a">Volta Nera</div>
+            <div class="pr-role" data-i18n="r5s">Band · Accelerando Roster</div>
+          </div>
+          <div class="pr-card">
+            <div class="pr-type" data-i18n="r6type">Artist</div>
+            <p class="pr-text" data-i18n="r6text">
+              "Accelerando put us in front of an audience that actually cared.
+              They treat their artists like people, not like content. I'd play
+              every one of their events."
+            </p>
+            <div class="pr-author" data-i18n="r6a">Ryan Windross</div>
+            <div class="pr-role" data-i18n="r6s">
+              Bass Player · Accelerando Roster
+            </div>
+          </div>
+        </div>
+        <!-- Event photos — replace placeholders with real photos from your events -->
+        <div class="pr-photos">
+          <div class="pr-photo" style="background: #0e0e0e; overflow: hidden">
+            <img
+              src="Images/WhatsApp 2026-06-05 at 16.33.23.jpeg"
+              alt="Spotlight Lounge"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                inset: 0;
+                display: block;
+              "
+            />
+          </div>
+          <div class="pr-photo" style="background: #0e0e0e; overflow: hidden">
+            <img
+              src="Images/WhatsApp Image 2026-06-05 at 16.33.23.jpeg"
+              alt="Accelerando Event"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                inset: 0;
+                display: block;
+              "
+            />
+          </div>
+          <div class="pr-photo" style="background: #0e0e0e; overflow: hidden">
+            <img
+              src="Images/WhatsApp Image 2026-06-05 at 16.33.25.jpeg"
+              alt="Live at Accelerando"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                inset: 0;
+                display: block;
+              "
+            />
+          </div>
+          <div class="pr-photo" style="background: #0e0e0e; overflow: hidden">
+            <img
+              src="Images/WhatsApp Image 2026-06-05 at 16.33.52.jpeg"
+              alt="On Stage"
+              style="
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                inset: 0;
+                display: block;
+              "
+            />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="ct-hd">
+          <div class="sec-tag" data-i18n="ctTag">Contact</div>
+          <h2
+            class="sec-h"
+            style="font-size: clamp(38px, 5vw, 70px)"
+            data-i18n="ctTitle"
+          >
+            Get in Touch
+          </h2>
+        </div>
+        <div class="ct-grid">
+          <div class="ct-left">
+            <h3 data-i18n="ctDH">Direct Line</h3>
+            <div class="ct-item">
+              <strong data-i18n="ctG">General &amp; Press</strong>
+              <a href="mailto:ricks.events.productions@gmail.com"
+                >ricks.events.productions@gmail.com</a
+              >
+            </div>
+            <div class="ct-item">
+              <strong data-i18n="ctB">Bookings</strong>
+              <a href="mailto:Bookings.accelerando@gmail.com"
+                >Bookings.accelerando@gmail.com</a
+              >
+            </div>
+            <div class="ct-item">
+              <strong data-i18n="ctD">Demo Submissions</strong>
+              <a href="mailto:demos@accelerandorecords.com"
+                >demos@accelerandorecords.com</a
+              >
+            </div>
+            <hr class="ct-div" />
+            <div class="ct-social">
+              <h3 data-i18n="ctSH">Follow the Noise</h3>
+              <a
+                href="https://instagram.com/accelerando_records"
+                target="_blank"
+                >@accelerando_records</a
+              >
+              <a
+                href="https://instagram.com/accelerando_events_london"
+                target="_blank"
+                >@accelerando_events_london</a
+              >
+              <a
+                href="https://instagram.com/accelerando_events_berlin"
+                target="_blank"
+                >@accelerando_events_berlin</a
+              >
+              <a
+                href="https://instagram.com/accelerando_events_newyork"
+                target="_blank"
+                >@accelerando_events_newyork</a
+              >
+            </div>
+          </div>
+          <div class="ct-right">
+            <div class="ct-right-hd">
+              <h3 data-i18n="ctMH">Send a Message</h3>
+              <p data-i18n="ctMD">
+                Whether you're a booker, a journalist, a venue owner, or an
+                artist with something worth hearing — the inbox is open. Tell us
+                what you need.
+              </p>
+            </div>
+            <div class="ct-opt">
+              <div class="ct-opt-n">01</div>
+              <h4 data-i18n="ct1H">Demo Submission</h4>
+              <p data-i18n="ct1D">
+                Send a link (SoundCloud, Bandcamp, Dropbox). Three tracks max.
+                No attachments.
+              </p>
+            </div>
+            <div class="ct-opt">
+              <div class="ct-opt-n">02</div>
+              <h4 data-i18n="ct2H">Booking &amp; Hosting</h4>
+              <p data-i18n="ct2D">
+                Want to perform or host us? Write to
+                <a
+                  href="mailto:Bookings.accelerando@gmail.com"
+                  style="color: var(--bu)"
+                  >Bookings.accelerando@gmail.com</a
+                >
+                with your proposal.
+              </p>
+            </div>
+            <div class="ct-opt">
+              <div class="ct-opt-n">03</div>
+              <h4 data-i18n="ct3H">General</h4>
+              <p data-i18n="ct3D">
+                Anything else: partnerships, venue proposals, ideas. We read it
+                all.
+              </p>
+            </div>
+            <a
+              href="mailto:Bookings.accelerando@gmail.com"
+              class="btn-mail"
+              data-i18n="ctBtn"
+              >Email Us Directly</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="wrap">
+        <div class="ft-logo">ACCELERANDO RECORDS</div>
+        <p>
+          © 2026 Accelerando Records · Independent label &amp; live music
+          promoter · <a href="mailto:Bookings.accelerando@gmail.com">Contact</a>
+        </p>
+        <p style="margin-top: 6px; font-size: 10px; color: #333">
+          London · Berlin · New York · Made with music in mind.
+        </p>
+      </div>
+    </footer>
+
+    <!-- CONTACT MODAL -->
+    <div
+      class="modal-overlay"
+      id="contactModal"
+      onclick="if (event.target === this) this.classList.remove('open');"
+    >
+      <div class="modal-box">
+        <button
+          class="modal-close"
+          onclick="
+            document.getElementById('contactModal').classList.remove('open')
+          "
+        >
+          ✕
+        </button>
+        <div class="modal-title" data-i18n="modalTitle">Write to Us</div>
+        <div class="modal-sub" data-i18n="modalSub">
+          Choose the best channel for your message.
+        </div>
+        <div class="modal-line">
+          <div class="modal-ico red">✉️</div>
+          <div class="modal-line-txt">
+            <strong>General &amp; Press</strong>
+            <a href="mailto:ricks.events.productions@gmail.com"
+              >ricks.events.productions@gmail.com</a
+            >
+          </div>
+        </div>
+        <div class="modal-line">
+          <div class="modal-ico red">🎟️</div>
+          <div class="modal-line-txt">
+            <strong>Bookings &amp; Hosting</strong>
+            <a href="mailto:Bookings.accelerando@gmail.com"
+              >Bookings.accelerando@gmail.com</a
+            >
+          </div>
+        </div>
+        <div class="modal-line">
+          <div class="modal-ico ig">📸</div>
+          <div class="modal-line-txt">
+            <strong>Instagram — London</strong>
+            <a
+              href="https://instagram.com/accelerando_events_london"
+              target="_blank"
+              >@accelerando_events_london</a
+            >
+          </div>
+        </div>
+        <div class="modal-line">
+          <div class="modal-ico bu">📸</div>
+          <div class="modal-line-txt">
+            <strong>Instagram — Berlin</strong>
+            <a
+              href="https://instagram.com/accelerando_events_berlin"
+              target="_blank"
+              >@accelerando_events_berlin</a
+            >
+          </div>
+        </div>
+        <div class="modal-line">
+          <div class="modal-ico ig">📸</div>
+          <div class="modal-line-txt">
+            <strong>Instagram — New York</strong>
+            <a
+              href="https://instagram.com/accelerando_events_newyorkcity"
+              target="_blank"
+              >@accelerando_events_newyorkcity</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // WAVE BARS
+      (function () {
+        const w = document.getElementById("waves");
+        if (!w) return;
+        const heights = [
+          6, 10, 18, 28, 36, 28, 20, 36, 24, 18, 10, 28, 34, 20, 14, 28, 36, 22,
+          16, 30, 22, 12, 8,
+        ];
+        const delays = [
+          0, 0.1, 0.2, 0.05, 0.15, 0.25, 0.08, 0.18, 0.3, 0.12, 0.22, 0.04,
+          0.16, 0.26, 0.1, 0.2, 0.07, 0.17, 0.27, 0.11, 0.21, 0.03, 0.13,
+        ];
+        heights.forEach((h, i) => {
+          const s = document.createElement("span");
+          s.style.cssText = `height:${h}px`;
+          w.appendChild(s);
+        });
+      })();
+
+      // TRANSLATIONS
+      const T = {
+        en: {
+          n1: "Home",
+          n2: "Artists",
+          n3: "Events",
+          nBJ: "Battle Jam",
+          n4: "Venues",
+          n5: "Team",
+          n6: "Press",
+          n7: "Contact",
+          nCTA: "Get your Ticket",
+          tmTag: "Team",
+          hTag: "Independent Record Label & Event Promoter",
+          hL1: "We Find the Sound",
+          hL2: "Before the World Does",
+          hDesc:
+            "Accelerando Records is an independent record label and live music promotion company born in UK. We sign bold artists, press real records, and throw nights people don't forget. Raw music. Real stages. No compromise.",
+          hCities:
+            'Now hosting events in <span class="rl">London</span>, <span class="bl">Berlin</span> and <span class="ny">New York</span>!',
+          hB1: "Discover Our Artists",
+          hB2: "Upcoming Events",
+          abTag: "About Us",
+          abTitle: "Built on the Belief That\nMusic Changes Everything",
+          abStoryH: "Our Story",
+          abS1: "Accelerando Records was founded by obsessives — people who stayed until the last song, who spent rent money on vinyl, who believed the underground had something the mainstream could never buy. We started as a one-room operation in a London backstreet. We're still in that spirit.",
+          abS2: "We champion original artists at every stage.",
+          abS3: "Live events. Record label. Community. That's the whole machine.",
+          abQ: "We don't sign trends. We sign people who'd make music in a blackout. The sound is the point. Always has been.",
+          abP1H: "Live Events",
+          abP1D:
+            "Curated nights at venues that respect the music. Intimate, loud, and unforgettable.",
+          abP2H: "Artist Development",
+          abP2D:
+            "We grow with our artists — long term. Press, booking, strategy, real talk.",
+          roTag: "Musicians",
+          roTitle: "The Roster",
+          roSub:
+            "Every artist on our label was found in a basement, a late-night session, or a demo inbox at 2am. These are the ones we bet on.",
+          roBtn: "Artist info",
+          a1n: "Mirko Fadda",
+          a1t: "Guitarist / Progressive Rock",
+          a1b: 'A self-taught guitarist from Puglia, Italy, influenced by progressive rock and metal legends. Channelled his passion into "Egolution," a self-produced melodic instrumental single for solo guitar.',
+          a2n: "Kirreu",
+          a2t: "Bass & Drums / Alternative Rock",
+          a2b: "A Wellington-based musician from New Zealand, bringing a rhythmic foundation as a multi-instrumentalist specialising in bass and drums.",
+          a3n: "Daniel Bryan",
+          a3t: "Multi-instrumentalist / Modern Jazz",
+          a3b: "A Malaysian-born pianist based in the UK, classically trained from childhood and inspired by jazz greats like Herbie Hancock. His ambition: make sophisticated music accessible to younger audiences.",
+          a4n: "Hugh Baker",
+          a4t: "Drummer / Percussionist",
+          a4b: "A London-based drummer open to a wide range of musical collaborations, from musical theatre and live gigs to teaching.",
+          a5n: "Ryan Windross",
+          a5t: "Multi-genre Bass Player",
+          a5b: "A versatile London-based bass player and producer with an extensive live performance record spanning soul, reggae, and beyond — active with Soul Rebel Band, The Dualers, and Karmahead.",
+          a6n: "Rufus Miller",
+          a6t: "Drummer / Alternative Psych Rock",
+          a6b: "A London-based alternative psych rock solo artist performing as a power trio. His third album Basement earned critical acclaim following extensive touring across the UK and Czech Republic.",
+          roCTA:
+            "Got something worth hearing? <strong>Submit your demo</strong> — we listen to everything. No gatekeeping.",
+          roCTABtn: "Submit Your Demo",
+          evTag: "Events",
+          evTitle: "Live. Loud.\nUncompromising.",
+          evDesc:
+            "We produce events that feel like something. Carefully chosen venues, artists who deliver, audiences who actually show up for the music.",
+          evBtn: "Buy Tickets",
+          e1d: "24 JUN 2026 — LONDON",
+          e1h: "The Spotlight Lounge | Live Music Showcase",
+          e1i: 'Venue: <span class="hl">The Roxy, Soho</span> · Doors: <span class="hl">19:00</span>',
+          e2d: "25 JUN 2026 — LONDON",
+          e2h: "The Spotlight Lounge | Live Music Showcase",
+          e2i: 'Venue: <span class="hl">Fabwick, Hackney Wick</span> · Doors: <span class="hl">20:00</span>',
+          e3d: "26 JUN 2026 — LONDON",
+          e3h: "The Spotlight Lounge | Live Music Showcase",
+          e3i: 'Venue: <span class="hl">The Roxy, Soho</span> · Doors: <span class="hl">19:00</span>',
+          bjTag: "Battle Jam",
+          bjL1: "The",
+          bjL2: "Battle Jam",
+          bjSub:
+            "Born at The Roxy. Accelerando's flagship live music competition — artists go head-to-head on stage, the crowd decides who wins. Raw talent, no backing tracks, no safety net. Just music and nerve.",
+          bjB1: "Live at The Roxy, Soho",
+          bjB2: "Head-to-Head Format",
+          bjB3: "Crowd Votes",
+          bjB4: "All Genres Welcome",
+          bjBtn: "Compete or Watch →",
+          vnTag: "Venues",
+          vnTitle: "Spaces That Respect the Sound",
+          vnSub:
+            "We only work with venues that care about the music as much as we do. Real acoustics, real atmosphere, real crowds.",
+          vnLon: "London",
+          vnBer: "Berlin",
+          vnNY: "New York",
+          vnTicket: "Get Tickets",
+          vnFollow: "Follow for Updates",
+          v1n: "Fabwick",
+          v1c: "Cap. 120",
+          v1d: "A vibrant cultural hub in the heart of Hackney Wick — part jazz bar, part art gallery, part live music venue. Queen's Yard's most unexpected and essential night-out.",
+          v2n: "The Roxy",
+          v2c: "Cap. 200",
+          v2d: "A subterranean Soho institution. Where the Battle Jam was born. Underground acts, Spotlight Lounge and a crowd that has been chasing real music since the '90s. Wednesday and Friday nights belong here.",
+          v3n: "T.E. Dingwall Building",
+          v3c: "Cap. 600",
+          v3d: "Camden's most storied live music room, beside the lock. Since 1973, it's hosted everyone from The Clash to Coldplay. Industrial, canal-side, legendary.",
+          v4n: "Barkett",
+          v4c: "Cap. 100",
+          v4d: "A cosy neighbourhood bar and live music stage in Berlin-Schöneberg. Open mic nights, craft beers, friendly staff. Exactly the kind of room where real music happens.",
+          v5n: "Jam in a Jar",
+          v5c: "London",
+          v5d: "Description coming soon. One of Accelerando's key London stages.",
+          v6n: "LVLS",
+          v6c: "London",
+          v6d: "Description coming soon. A key venue in the Accelerando circuit.",
+          vNY1n: "Telephone Room",
+          vNY1c: "Brooklyn, NY",
+          vNY1d:
+            "Hidden behind a red phone booth inside a Bushwick coffee shop, Telephone Room is an intimate, red-lit speakeasy built for close, unforgettable nights: vintage charm, a copper bar, and a stage made for our smaller, more personal shows.",
+          omicLabel: "Open Mic Circuit — London",
+          omicTag: "Open Mic · London",
+          om1n: "Open Mic Night #1",
+          om1d: "Venue details coming soon.",
+          om2n: "Open Mic Night #2",
+          om2d: "Venue details coming soon.",
+          om3n: "Open Mic Night #3",
+          om3d: "Venue details coming soon.",
+          wtuTitle: "Want to host an Accelerando night?",
+          wtuSub:
+            "We bring the lineup, the production, and the crowd. You bring the room. Get in touch through any of our channels.",
+          wtuBtn: "Write to Us",
+          tmTitle: "Our Team",
+          tmSub:
+            "Our internal team manages events, administration, and artist support behind the scenes. They keep everything organised, moving, and ready for the show.",
+          t1n: "Riccardo Elisei (Rick)",
+          t1r: "CEO",
+          t1b: "The founder and creative force behind Accelerando Records — from a London backstreet to stages across Europe and New York.",
+          t2n: "Elia Longo",
+          t2r: "Event Manager & A&R | London",
+          t2b: "Actor, host, and promoter — the driving force behind Accelerando's London events. With a sharp instinct for live energy and audience connection, he produces events that blend performance, music, and culture.",
+          t3n: "Silvia d'Amore",
+          t3r: "Event Manager & A&R | Berlin",
+          t3b: "The host behind Accelerando's Berlin events. Silvia combines experience in marketing and live events with a genuine passion for building spaces where artists and audiences actually connect.",
+          t4n: "Scotty",
+          t4r: "Host | Artist by Accelerando",
+          t4b: "Three people making a sound like six. Volta Nera's live show is a controlled explosion. Signed 2023.",
+          prTag: "Press & Media",
+          prTitle: "What They're Saying",
+          prKitH: "Press Kit",
+          prKitD:
+            "Everything you need: hi-res artist photos, label logos, bios, and release one-sheets. Request the full press kit directly.",
+          prKitBtn: "Request Press Kit",
+          r1type: "Audience",
+          r1text:
+            '"I walked into Fabwick not knowing what to expect and left completely blown away. Accelerando doesn\'t just book artists — they build an entire experience around the music."',
+          r1a: "Emma R.",
+          r1s: "London · Audience",
+          r2type: "Audience",
+          r2text:
+            "\"The energy at Barkett that night was unlike anything I'd felt in a long time. You could tell everyone in the room was there for the music. That's rare.\"",
+          r2a: "Marco T.",
+          r2s: "Berlin · Audience",
+          r3type: "Audience",
+          r3text:
+            '"The Spotlight Lounge is the best thing happening in London right now. Found two new favourite artists in one evening. No gimmicks, just real music."',
+          r3a: "Sarah K.",
+          r3s: "London · Audience",
+          r4type: "Battle Jam",
+          r4text:
+            "\"The Battle Jam at The Roxy was something else. Two artists, one stage, no script — the crowd went wild. I've never felt energy like that in a live room. This is what it's all about.\"",
+          r4a: "James W.",
+          r4s: "Audience · The Roxy, Soho",
+          r5type: "Artist",
+          r5text:
+            '"Playing a Barkett night was one of my best gigs this year. The crowd was there for the music. What else do you need?"',
+          r5a: "Volta Nera",
+          r5s: "Band · Accelerando Roster",
+          r6type: "Artist",
+          r6text:
+            '"Accelerando put us in front of an audience that actually cared. They treat their artists like people, not like content. I\'d play every one of their events."',
+          r6a: "Ryan Windross",
+          r6s: "Bass Player · Accelerando Roster",
+          ctTag: "Contact",
+          ctTitle: "Get in Touch",
+          ctDH: "Direct Line",
+          ctG: "General & Press",
+          ctB: "Bookings",
+          ctD: "Demo Submissions",
+          ctSH: "Follow the Noise",
+          ctMH: "Send a Message",
+          ctMD: "Whether you're a booker, a journalist, a venue owner, or an artist with something worth hearing — the inbox is open. Tell us what you need.",
+          ct1H: "Demo Submission",
+          ct1D: "Send a link (SoundCloud, Bandcamp, Dropbox). Three tracks max. No attachments.",
+          ct2H: "Booking & Hosting",
+          ct2D: "Want to perform or host us? Write to Bookings.accelerando@gmail.com with your proposal.",
+          ct3H: "General",
+          ct3D: "Anything else: partnerships, venue proposals, ideas. We read it all.",
+          ctBtn: "Email Us Directly",
+          modalTitle: "Write to Us",
+          modalSub: "Choose the best channel for your message.",
+        },
+        de: {
+          n1: "Startseite",
+          n2: "Künstler",
+          n3: "Events",
+          nBJ: "Battle Jam",
+          n4: "Venues",
+          n5: "Team",
+          n6: "Presse",
+          n7: "Kontakt",
+          nCTA: "Ticket kaufen",
+          tmTag: "Team",
+          hTag: "Unabhängiges Plattenlabel & Veranstaltungspromoter",
+          hL1: "Wir finden den Sound,",
+          hL2: "bevor es die Welt tut.",
+          hDesc:
+            "Accelerando Records ist ein unabhängiges Plattenlabel und Live-Musik-Promotionunternehmen, gegründet in Großbritannien. Wir signen mutige Künstler, pressen echte Platten und veranstalten Nächte, die man nicht vergisst. Echte Musik. Echte Bühnen. Kein Kompromiss.",
+          hCities:
+            'Jetzt mit Events in <span class="rl">London</span>, <span class="bl">Berlin</span> und <span class="ny">New York</span>!',
+          hB1: "Unsere Künstler entdecken",
+          hB2: "Bevorstehende Events",
+          abTag: "Über uns",
+          abTitle: "Gegründet auf dem Glauben,\ndass Musik alles verändert",
+          abStoryH: "Unsere Geschichte",
+          abS1: "Accelerando Records wurde von Besessenen gegründet — Menschen, die bis zum letzten Song blieben, die ihr Mietgeld für Vinyl ausgaben, die glaubten, dass der Underground etwas hatte, das der Mainstream nie kaufen konnte. Wir starteten als Ein-Zimmer-Betrieb in einer Londoner Hinterstraße. Dieser Geist lebt weiter.",
+          abS2: "Wir fördern Originalkünstler auf jeder Stufe.",
+          abS3: "Live-Events. Plattenlabel. Community. Das ist die ganze Maschine.",
+          abQ: "Wir signen keine Trends. Wir signen Menschen, die auch im Dunkeln Musik machen würden. Der Sound ist der Punkt. Immer gewesen.",
+          abP1H: "Live-Events",
+          abP1D:
+            "Kuratierte Nächte in Venues, die die Musik respektieren. Intim, laut und unvergesslich.",
+          abP2H: "Künstlerentwicklung",
+          abP2D:
+            "Wir wachsen mit unseren Künstlern — langfristig. Presse, Booking, Strategie, echtes Gespräch.",
+          roTag: "Musiker",
+          roTitle: "Das Roster",
+          roSub:
+            "Jeder Künstler auf unserem Label wurde in einem Keller, bei einer Nachtsession oder in einem Demo-Postfach um 2 Uhr morgens entdeckt. Das sind die, auf die wir setzen.",
+          roBtn: "Künstlerinfo",
+          a1n: "Mirko Fadda",
+          a1t: "Gitarrist / Progressive Rock",
+          a1b: 'Ein autodidaktischer Gitarrist aus Apulien, Italien, beeinflusst von Progressive Rock und Metal. Er channelte seine Leidenschaft in „Egolution", eine selbstproduzierte melodische Instrumentalsingle für Sologitarre.',
+          a2n: "Kirreu",
+          a2t: "Bass & Schlagzeug / Alternative Rock",
+          a2b: "Ein Musiker aus Wellington, Neuseeland, der als Multiinstrumentalist auf Bass und Schlagzeug eine rhythmische Grundlage einbringt.",
+          a3n: "Daniel Bryan",
+          a3t: "Multiinstrumentalist / Modern Jazz",
+          a3b: "Ein in Malaysia geborener Pianist mit Sitz in Großbritannien, klassisch ausgebildet seit der Kindheit und inspiriert von Jazzgrößen wie Herbie Hancock. Sein Ziel: anspruchsvolle Musik für jüngere Zuhörer zugänglich machen.",
+          a4n: "Hugh Baker",
+          a4t: "Schlagzeuger / Perkussionist",
+          a4b: "Ein in London ansässiger Schlagzeuger, offen für ein breites Spektrum musikalischer Zusammenarbeiten — von Musical-Theater über Live-Gigs bis hin zum Unterrichten.",
+          a5n: "Ryan Windross",
+          a5t: "Genreübergreifender Bassist",
+          a5b: "Ein vielseitiger in London ansässiger Bassist und Produzent mit umfangreicher Live-Erfahrung in Soul, Reggae und mehr — aktiv mit Soul Rebel Band, The Dualers und Karmahead.",
+          a6n: "Rufus Miller",
+          a6t: "Schlagzeuger / Alternative Psych Rock",
+          a6b: "Ein in London ansässiger Alternative-Psych-Rock-Solokünstler, der als Power-Trio auftritt. Sein drittes Album Basement fand kritische Anerkennung nach ausgedehnten Touren durch Großbritannien und Tschechien.",
+          roCTA:
+            "Hast du etwas Hörenswertes? <strong>Reiche dein Demo ein</strong> — wir hören alles an. Kein Gatekeeping.",
+          roCTABtn: "Demo einreichen",
+          evTag: "Events",
+          evTitle: "Live. Laut.\nKompromisslos.",
+          evDesc:
+            "Wir produzieren Events, die sich nach etwas anfühlen. Sorgfältig ausgewählte Venues, Künstler, die liefern, Publikum, das wirklich wegen der Musik kommt.",
+          evBtn: "Tickets kaufen",
+          e1d: "24 JUN 2026 — LONDON",
+          e1h: "The Spotlight Lounge | Live Music Showcase",
+          e1i: 'Venue: <span class="hl">The Roxy, Soho</span> · Einlass: <span class="hl">19:00</span>',
+          e2d: "25 JUN 2026 — LONDON",
+          e2h: "The Spotlight Lounge | Live Music Showcase",
+          e2i: 'Venue: <span class="hl">Fabwick, Hackney Wick</span> · Einlass: <span class="hl">20:00</span>',
+          e3d: "26 JUN 2026 — LONDON",
+          e3h: "The Spotlight Lounge | Live Music Showcase",
+          e3i: 'Venue: <span class="hl">The Roxy, Soho</span> · Einlass: <span class="hl">19:00</span>',
+          bjTag: "Battle Jam",
+          bjL1: "Der",
+          bjL2: "Battle Jam",
+          bjSub:
+            "Im The Roxy geboren. Accelerandos Flaggschiff-Musikwettbewerb — Künstler treten direkt gegeneinander an, das Publikum entscheidet. Rohe Talente, keine Playbacks, kein Sicherheitsnetz. Nur Musik und Nerven.",
+          bjB1: "Live im The Roxy, Soho",
+          bjB2: "Head-to-Head Format",
+          bjB3: "Publikum wählt",
+          bjB4: "Alle Genres willkommen",
+          bjBtn: "Teilnehmen oder zuschauen →",
+          vnTag: "Venues",
+          vnTitle: "Räume, die den Sound respektieren",
+          vnSub:
+            "Wir arbeiten nur mit Venues, denen die Musik genauso viel bedeutet wie uns. Echte Akustik, echte Atmosphäre, echtes Publikum.",
+          vnLon: "London",
+          vnBer: "Berlin",
+          vnNY: "New York",
+          vnTicket: "Tickets holen",
+          vnFollow: "Updates folgen",
+          v1n: "Fabwick",
+          v1c: "Kap. 120",
+          v1d: "Ein lebhafter Kulturtreffpunkt im Herzen von Hackney Wick — Teil Jazzbar, Teil Kunstgalerie, Teil Live-Musik-Venue. Das unerwartetste und essenziellste Ausgeherlebnis im Queen's Yard.",
+          v2n: "The Roxy",
+          v2c: "Kap. 200",
+          v2d: "Eine unterirdische Soho-Institution. Wo der Battle Jam geboren wurde. Underground-Acts, Spotlight Lounge und ein Publikum, das seit den 90ern echte Musik sucht. Mittwoch- und Freitagabende gehören hierher.",
+          v3n: "T.E. Dingwall Building",
+          v3c: "Kap. 600",
+          v3d: "Camdens legendärster Live-Musik-Saal, direkt am Schloss. Seit 1973 hat er jeden von The Clash bis Coldplay beherbergt. Industrial, kanalseite, unvergesslich.",
+          v4n: "Barkett",
+          v4c: "Kap. 100",
+          v4d: "Eine gemütliche Nachbarschaftsbar und Live-Musik-Bühne in Berlin-Schöneberg. Open-Mic-Nächte, Craft-Biere, freundliches Personal. Genau der Raum, in dem echte Musik entsteht.",
+          v5n: "Jam in a Jar",
+          v5c: "London",
+          v5d: "Beschreibung folgt. Eine der wichtigsten Londoner Bühnen von Accelerando.",
+          v6n: "LVLS",
+          v6c: "London",
+          v6d: "Beschreibung folgt. Ein wichtiger Treffpunkt im Accelerando-Circuit.",
+          vNY1n: "Telephone Room",
+          vNY1c: "Brooklyn, NY",
+          vNY1d:
+            "Versteckt hinter einer roten Telefonzelle in einem Bushwick-Café ist der Telephone Room ein intimer, rotbeleuchteter Speakeasy für unvergessliche Nächte: Vintage-Charme, eine Kupfer-Bar und eine Bühne für unsere kleineren, persönlicheren Shows.",
+          omicLabel: "Open Mic Circuit — London",
+          omicTag: "Open Mic · London",
+          om1n: "Open Mic Night #1",
+          om1d: "Venue-Details folgen.",
+          om2n: "Open Mic Night #2",
+          om2d: "Venue-Details folgen.",
+          om3n: "Open Mic Night #3",
+          om3d: "Venue-Details folgen.",
+          wtuTitle: "Möchtest du eine Accelerando-Nacht veranstalten?",
+          wtuSub:
+            "Wir bringen das Lineup, die Produktion und das Publikum. Du bringst den Raum. Meld dich über einen unserer Kanäle.",
+          wtuBtn: "Schreib uns",
+          tmTitle: "Unser Team",
+          tmSub:
+            "Unser internes Team verwaltet Events, Administration und Künstlerunterstützung hinter den Kulissen. Sie halten alles organisiert, in Bewegung und showbereit.",
+          t1n: "Riccardo Elisei (Rick)",
+          t1r: "CEO",
+          t1b: "Gründer und kreative Kraft hinter Accelerando Records — von einer Londoner Hinterstraße auf Bühnen in ganz Europa und New York.",
+          t2n: "Elia Longo",
+          t2r: "Eventmanager & A&R | London",
+          t2b: "Schauspieler, Moderator und Promoter — treibende Kraft hinter Accelerandos Londoner Events. Mit scharfem Gespür für Live-Energie produziert er Events, die Performance, Musik und Kultur verbinden.",
+          t3n: "Silvia d'Amore",
+          t3r: "Eventmanagerin & A&R | Berlin",
+          t3b: "Die Gastgeberin hinter Accelerandos Berliner Events. Silvia verbindet Erfahrung in Marketing und Live-Events mit einer echten Leidenschaft für Räume, in denen Künstler und Publikum wirklich in Verbindung treten.",
+          t4n: "Scotty",
+          t4r: "Host | Künstler bei Accelerando",
+          t4b: "Drei Menschen, die klingen wie sechs. Volta Neras Live-Show ist eine kontrollierte Explosion. Gesignt 2023.",
+          prTag: "Presse & Medien",
+          prTitle: "Was sie sagen",
+          prKitH: "Pressemappe",
+          prKitD:
+            "Alles, was du brauchst: hochauflösende Künstlerfotos, Label-Logos, Biografien und Release-Infoblätter. Jetzt direkt anfragen.",
+          prKitBtn: "Pressemappe anfragen",
+          r1type: "Publikum",
+          r1text:
+            '"Ich bin ins Fabwick gegangen, ohne zu wissen, was mich erwartet, und kam vollkommen begeistert heraus. Accelerando bucht nicht nur Künstler — sie bauen ein ganzes Erlebnis rund um die Musik."',
+          r1a: "Emma R.",
+          r1s: "London · Publikum",
+          r2type: "Publikum",
+          r2text:
+            '"Die Energie beim Barkett war an diesem Abend einzigartig. Man konnte spüren, dass jeder im Raum wegen der Musik da war. Das ist selten."',
+          r2a: "Marco T.",
+          r2s: "Berlin · Publikum",
+          r3type: "Publikum",
+          r3text:
+            '"The Spotlight Lounge ist im Moment das Beste, was in London passiert. An einem Abend zwei neue Lieblingskünstler gefunden. Kein Tamtam, nur echte Musik."',
+          r3a: "Sarah K.",
+          r3s: "London · Publikum",
+          r4type: "Battle Jam",
+          r4text:
+            '"Der Battle Jam im The Roxy war etwas Besonderes. Zwei Künstler, eine Bühne, kein Skript — das Publikum rastete aus. Ich habe in einem Live-Raum noch nie so eine Energie gespürt."',
+          r4a: "James W.",
+          r4s: "Publikum · The Roxy, Soho",
+          r5type: "Künstler",
+          r5text:
+            '"Der Barkett-Abend war einer meiner besten Auftritte in diesem Jahr. Das Publikum war wegen der Musik da. Was will man mehr?"',
+          r5a: "Volta Nera",
+          r5s: "Band · Accelerando Roster",
+          r6type: "Künstler",
+          r6text:
+            '"Accelerando hat uns vor ein Publikum gestellt, dem es wirklich wichtig war. Sie behandeln ihre Künstler wie Menschen, nicht wie Content. Ich würde jeden ihrer Events spielen."',
+          r6a: "Ryan Windross",
+          r6s: "Bassist · Accelerando Roster",
+          ctTag: "Kontakt",
+          ctTitle: "Kontaktiere uns",
+          ctDH: "Direktleitung",
+          ctG: "Allgemein & Presse",
+          ctB: "Booking",
+          ctD: "Demo-Einreichungen",
+          ctSH: "Folge dem Lärm",
+          ctMH: "Nachricht senden",
+          ctMD: "Ob du Booker, Journalist, Venue-Betreiber oder Künstler mit etwas Hörenswerten bist — der Posteingang ist offen. Sag uns, was du brauchst.",
+          ct1H: "Demo-Einreichung",
+          ct1D: "Schick einen Link (SoundCloud, Bandcamp, Dropbox). Maximal drei Tracks. Keine Anhänge.",
+          ct2H: "Booking & Hosting",
+          ct2D: "Auftreten oder hosten? Schreib an Bookings.accelerando@gmail.com.",
+          ct3H: "Allgemeines",
+          ct3D: "Alles andere: Partnerschaften, Venue-Vorschläge, Ideen. Wir lesen alles.",
+          ctBtn: "Direkt mailen",
+          modalTitle: "Schreib uns",
+          modalSub: "Wähle den besten Kanal für deine Nachricht.",
+        },
+      };
+
+      let lang = "en";
+
+      function applyLang() {
+        const t = T[lang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const k = el.getAttribute("data-i18n");
+          if (t[k] !== undefined) el.textContent = t[k];
+        });
+        document.querySelectorAll("[data-i18nHTML]").forEach((el) => {
+          const k = el.getAttribute("data-i18nHTML");
+          if (t[k] !== undefined) el.innerHTML = t[k];
+        });
+        document.getElementById("langBtn").textContent =
+          lang === "en" ? "DE" : "EN";
+        document.documentElement.lang = lang;
+      }
+
+      document.getElementById("langBtn").addEventListener("click", () => {
+        lang = lang === "en" ? "de" : "en";
+        applyLang();
+      });
+
+      // Smooth scroll nav
+      document.querySelectorAll('a[href^="#"]').forEach((a) => {
+        a.addEventListener("click", (e) => {
+          e.preventDefault();
+          const t = document.querySelector(a.getAttribute("href"));
+          if (t) t.scrollIntoView({ behavior: "smooth" });
+        });
+      });
+
+      // Scroll animations
+      const io = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.style.opacity = "1";
+              e.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+
+      document
+        .querySelectorAll(
+          ".art-card,.vn-card,.tm-card,.pr-card,.ev-card,.ab-pillar",
+        )
+        .forEach((el) => {
+          el.style.cssText +=
+            "opacity:0;transform:translateY(24px);transition:opacity .5s ease,transform .5s ease";
+          io.observe(el);
+        });
+    </script>
+  </body>
+</html>
